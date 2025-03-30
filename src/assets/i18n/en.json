@@ -1,0 +1,20 @@
+{
+  "header": {
+    "welcomeMessages": [
+      "Welcome to my digital world",
+      "I'm Full Stack Developer",
+      "I build digital experiences"
+    ]
+  },
+  "workflow": {
+    "tagline": "Transforming ideas into software",
+    "title": "Designing and building digital experiences",
+    "description": "I create high-performance digital solutions with the best technologies. From the front end to the back end, I develop agile, robust, and adaptable software.",
+    "feature1Title": "Push to deploy",
+    "feature1Desc": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+    "feature2Title": "SSL certificates",
+    "feature2Desc": "Anim aute id magna aliqua ad ad non deserunt sunt.",
+    "feature3Title": "Database backups",
+    "feature3Desc": "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus."
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "header": {
+    "welcomeMessages": [
+      "Bienvenid@ a mi mundo digital",
+      "Soy desarrollador Full Stack",
+      "Construyo experiencias digitales"
+    ]
+  },
+  "workflow": {
+    "tagline": "Transformando ideas en software",
+    "title": "Diseñando y construyendo experiencias digitales",
+    "description": "Creo soluciones digitales de alto rendimiento con las mejores tecnologías. Desde el frontend hasta el backend, desarrollo software ágil, robusto y adaptable.",
+    "feature1Title": "Implementación automática",
+    "feature1Desc": "Texto en español aquí...",
+    "feature2Title": "Certificados SSL",
+    "feature2Desc": "Texto en español aquí...",
+    "feature3Title": "Copias de base de datos",
+    "feature3Desc": "Texto en español aquí..."
+  }
+}
