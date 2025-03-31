@@ -1,87 +1,94 @@
-<!-- Contenedor principal (se adapta a móvil/desktop) -->
-<div
-  class="fixed top-4 right-4 z-50 flex items-center gap-2 sm:gap-3 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm px-2 py-1.5 sm:px-3 sm:py-2 rounded-full shadow-lg border border-gray-200 dark:border-gray-700 text-xs sm:text-sm">
+<div class="flex flex-col justify-between lg:min-h-screen">
+  <!-- Contenedor principal (se adapta a móvil/desktop) -->
+  <div
+    class="fixed top-4 right-4 z-50 flex items-center gap-2 sm:gap-3 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm px-2 py-1.5 sm:px-3 sm:py-2 rounded-full shadow-lg border border-gray-200 dark:border-gray-700 text-xs sm:text-sm">
 
-  <!-- Botón EN -->
-  <button (click)="changeLanguage('en')" [class.bg-indigo-600]="translate.getCurrentLang() === 'en'"
-    [class.text-white]="translate.getCurrentLang() === 'en'"
-    class="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full font-medium hover:bg-indigo-500 transition-colors text-[0.7rem] sm:text-xs">
-    EN
-  </button>
+    <!-- Botón EN -->
+    <button (click)="changeLanguage('en')" [class.bg-indigo-600]="translate.getCurrentLang() === 'en'"
+      [class.text-white]="translate.getCurrentLang() === 'en'"
+      class="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full font-medium hover:bg-indigo-500 transition-colors text-[0.7rem] sm:text-xs">
+      EN
+    </button>
 
-  <!-- Botón ES -->
-  <button (click)="changeLanguage('es')" [class.bg-indigo-600]="translate.getCurrentLang() === 'es'"
-    [class.text-white]="translate.getCurrentLang() === 'es'"
-    class="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full font-medium hover:bg-indigo-500 transition-colors text-[0.7rem] sm:text-xs">
-    ES
-  </button>
+    <!-- Botón ES -->
+    <button (click)="changeLanguage('es')" [class.bg-indigo-600]="translate.getCurrentLang() === 'es'"
+      [class.text-white]="translate.getCurrentLang() === 'es'"
+      class="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full font-medium hover:bg-indigo-500 transition-colors text-[0.7rem] sm:text-xs">
+      ES
+    </button>
 
-  <!-- Separador vertical -->
-  <div class="h-4 sm:h-5 w-px bg-gray-300 dark:bg-gray-600 mx-0.5 sm:mx-1"></div>
+    <!-- Separador vertical -->
+    <div class="h-4 sm:h-5 w-px bg-gray-300 dark:bg-gray-600 mx-0.5 sm:mx-1"></div>
 
-  <!-- Toggle modo oscuro -->
-  <label class="flex items-center cursor-pointer">
+    <!-- Toggle modo oscuro -->
+    <label class="flex items-center cursor-pointer">
 
-    <div
-      class="relative w-10 h-5 sm:w-12 sm:h-6 bg-gray-600 dark:bg-gray-300 rounded-full transition-all px-1 flex items-center">
-      <input type="checkbox" (change)="toggleDarkMode()" [checked]="isDarkMode" class="sr-only peer">
-      <!-- Icono sol (light mode) -->
-      <span class="absolute left-0.5 sm:left-1 text-yellow-500 text-[0.6rem] sm:text-xs transition-opacity duration-300"
-        [class.opacity-100]="!isDarkMode" [class.opacity-0]="!isDarkMode">☀️</span>
+      <div
+        class="relative w-10 h-5 sm:w-12 sm:h-6 bg-gray-600 dark:bg-gray-300 rounded-full transition-all px-1 flex items-center">
+        <input type="checkbox" (change)="toggleDarkMode()" [checked]="isDarkMode" class="sr-only peer">
+        <!-- Icono sol (light mode) -->
+        <span
+          class="absolute left-0.5 sm:left-1 text-yellow-500 text-[0.6rem] sm:text-xs transition-opacity duration-300"
+          [class.opacity-100]="!isDarkMode" [class.opacity-0]="!isDarkMode">☀️</span>
 
-      <!-- Circulo deslizante -->
-      <div class="absolute w-3 h-3 sm:w-4 sm:h-4 bg-white rounded-full shadow-md transition-transform duration-300 z-10
-      peer-checked:translate-x-5 sm:peer-checked:translate-x-6" [class.translate-x-6]="isDarkMode"></div>
+        <!-- Circulo deslizante -->
+        <div class="absolute w-3 h-3 sm:w-4 sm:h-4 bg-white rounded-full shadow-md transition-transform duration-300 z-10
+    peer-checked:translate-x-5 sm:peer-checked:translate-x-6" [class.translate-x-6]="isDarkMode"></div>
 
-      <!-- Icono luna (dark mode) -->
-      <span class="absolute right-0.5 sm:right-1 text-blue-300 text-[0.6rem] sm:text-xs transition-opacity duration-300"
-        [class.opacity-100]="isDarkMode" [class.opacity-0]="isDarkMode">🌙</span>
+        <!-- Icono luna (dark mode) -->
+        <span
+          class="absolute right-0.5 sm:right-1 text-blue-300 text-[0.6rem] sm:text-xs transition-opacity duration-300"
+          [class.opacity-100]="isDarkMode" [class.opacity-0]="isDarkMode">🌙</span>
+      </div>
+    </label>
+
+  </div>
+
+  <!-- Banner h-48 lg:h-[82vh] xxl:h-[76vh] -->
+  <div id="banner" class="relative">
+    <img src="assets/img/portada.jpg" class="w-full h-48 lg:h-[82vh] xxl:h-[76vh] object-cover object-center"
+      alt="Banner">
+
+    <!-- Texto con efecto de escritura -->
+    <div class="absolute inset-0 flex items-center justify-center bg-black/30">
+      <h1 class="text-xl md:text-4xl font-bold text-white text-center px-4">
+        {{ displayedText }}<span class="border-r-4 border-white animate-pulse"></span>
+      </h1>
     </div>
-  </label>
 
-</div>
-
-<!-- Banner h-48 lg:h-[82vh] xxl:h-[76vh] -->
-<div id="banner" class="relative">
-  <img src="assets/img/portada.jpg" class="w-full h-48 lg:h-[82vh] xxl:h-[76vh] object-cover object-center" alt="Banner">
-
-  <!-- Texto con efecto de escritura -->
-  <div class="absolute inset-0 flex items-center justify-center bg-black/30">
-    <h1 class="text-xl md:text-4xl font-bold text-white text-center px-4">
-      {{ displayedText }}<span class="border-r-4 border-white animate-pulse"></span>
-    </h1>
+    <!-- Imagen de perfil -->
+    <div class="absolute -bottom-12 left-1/2 transform -translate-x-1/2 md:left-10 md:translate-x-0">
+      <img src="assets/img/perfil.jpg" class="w-24 h-24 md:w-32 md:h-32 rounded-full border-4 border-white shadow-md"
+        alt="Profile">
+    </div>
   </div>
 
-  <!-- Imagen de perfil -->
-  <div class="absolute -bottom-12 left-1/2 transform -translate-x-1/2 md:left-10 md:translate-x-0">
-    <img src="assets/img/perfil.jpg" class="w-24 h-24 md:w-32 md:h-32 rounded-full border-4 border-white shadow-md"
-      alt="Profile">
-  </div>
-</div>
+  <!-- Contenido -->
+  <div class="pt-14 lg:pt-5 pb-6 px-6 text-center text-gray-900 dark:text-gray-200">
+    <h2 class="text-xl md:text-2xl font-semibold" [ngClass]="{'hidden': isSticky}">Mauricio Vereau</h2>
 
-<!-- Contenido -->
-<div class="pt-14 pb-6 px-6 text-center text-gray-900 dark:text-gray-200">
-  <h2 class="text-xl md:text-2xl font-semibold">Mauricio Vereau</h2>
-
-  <!-- Menú de botones con clases dinámicas -->
-  <div [ngClass]="{'fixed top-0 left-0 w-full bg-blue-50 dark:bg-gray-950  py-2 z-40': isSticky,'mt-5': !isSticky }"
-    class=" transition-all duration-300">
-    <div class="mt-2 flex md:justify-center justify-start space-x-4">
-      <button
-        class="flex items-center space-x-2 px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 rounded-lg shadow hover:bg-gray-300 dark:hover:bg-gray-600">
-        <span>📩</span>
-        <span class="hidden lg:inline">Mensaje</span>
-      </button>
-      <button
-        class="flex items-center space-x-2 px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 rounded-lg shadow hover:bg-gray-300 dark:hover:bg-gray-600">
-        <span>📞</span>
-        <span class="hidden lg:inline">Contacto</span>
-      </button>
-      <button
-        class="flex items-center space-x-2 px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 rounded-lg shadow hover:bg-gray-300 dark:hover:bg-gray-600">
-        <span>📍</span>
-        <span class="hidden lg:inline">Trujillo - Perú</span>
-      </button>
+    <!-- Menú de botones con clases dinámicas -->
+    <div
+      [ngClass]="{'fixed top-0 xlg:top-3 left-0 w-full bg-blue-50 dark:bg-gray-950 py-3 z-40': isSticky,'mt-5': !isSticky }"
+      class=" transition-all duration-200">
+      <div class="mt-1 flex md:justify-center justify-start space-x-4"
+        [ngClass]="{'ml-2 justify-start': isSticky, 'justify-center': !isSticky}">
+        <button
+          class="flex items-center space-x-2 px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 rounded-lg shadow hover:bg-gray-300 dark:hover:bg-gray-600">
+          <span>📩</span>
+          <span class="hidden lg:inline">Mensaje</span>
+        </button>
+        <button
+          class="flex items-center space-x-2 px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 rounded-lg shadow hover:bg-gray-300 dark:hover:bg-gray-600">
+          <span>📞</span>
+          <span class="hidden lg:inline">Contacto</span>
+        </button>
+        <button
+          class="flex items-center space-x-2 px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 rounded-lg shadow hover:bg-gray-300 dark:hover:bg-gray-600">
+          <span>📍</span>
+          <span class="hidden lg:inline">Trujillo - Perú</span>
+        </button>
+      </div>
     </div>
   </div>
 </div>
