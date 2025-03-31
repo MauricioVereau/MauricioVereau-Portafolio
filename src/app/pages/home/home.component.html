@@ -1,12 +1,10 @@
 <div class="relative bg-white dark:bg-gray-900 px-2 py-2">
 
-
-
   <!-- Botón izquierdo -->
-
-  <button (click)="prevComponent()" class="absolute left-4 top-1/2 z-10 -translate-y-1/2 p-3 rounded-full
+  <button (click)="prevComponent()" class="absolute left-4 top-1/2 z-10 -translate-y-1/2 p-4 rounded-full
           bg-gray-800/30 dark:bg-gray-300/20 backdrop-blur-md
-          transition duration-300 hover:bg-gray-800/60 dark:hover:bg-gray-300/40">
+          transition duration-300 hover:bg-gray-800/60 dark:hover:bg-gray-300/40
+          md:left-8">
     <svg class="size-6 text-white dark:text-gray-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
       stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
@@ -14,21 +12,23 @@
   </button>
 
   <!-- Botón derecho -->
-
-  <button (click)="nextComponent()" class="absolute right-4 top-1/2 z-10 -translate-y-1/2 p-3 rounded-full
+  <button (click)="nextComponent()" class="absolute right-4 top-1/2 z-10 -translate-y-1/2 p-4 rounded-full
           bg-gray-800/30 dark:bg-gray-300/20 backdrop-blur-md
-          transition duration-300 hover:bg-gray-800/60 dark:hover:bg-gray-300/40">
+          transition duration-300 hover:bg-gray-800/60 dark:hover:bg-gray-300/40
+          md:right-8">
     <svg class="size-6 text-white dark:text-gray-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
       stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
     </svg>
   </button>
 
-
-  <div>
-    <app-vision *ngIf="currentIndex === 0"></app-vision>
-    <app-about *ngIf="currentIndex === 1"></app-about>
-    <app-experience *ngIf="currentIndex === 2"></app-experience>
+  <!-- Contenedor de contenido -->
+  <div class="flex justify-center items-center h-full">
+    <div class="w-full px-4 sm:px-8">
+      <app-vision *ngIf="currentIndex === 0"></app-vision>
+      <app-about *ngIf="currentIndex === 1"></app-about>
+      <app-experience *ngIf="currentIndex === 2"></app-experience>
+    </div>
   </div>
 
 </div>
