@@ -23,6 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "baseHref": "/mauriciovereau-portafolio/",
             "outputPath": "dist/MauricioVereau-Portafolio",
             "index": "src/index.html",
             "browser": "src/main.ts",
