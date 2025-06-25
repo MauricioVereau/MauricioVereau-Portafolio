@@ -1,21 +1,30 @@
 <div class="flex flex-col justify-between lg:min-h-screen">
   <!-- Contenedor principal (se adapta a móvil/desktop) -->
   <div
-    class="fixed top-4 right-4 z-50 flex items-center gap-2 sm:gap-3 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm px-2 py-1.5 sm:px-3 sm:py-2 rounded-full shadow-lg border border-gray-200 dark:border-gray-700 text-xs sm:text-sm">
+    class="fixed top-4 right-4 z-50 flex items-center gap-2 sm:gap-3 bg-white/10 dark:bg-gray-900/10 backdrop-blur-md px-2 py-1.5 sm:px-3 sm:py-2 rounded-full shadow-lg border border-gray-200 dark:border-gray-700 text-xs sm:text-sm">
 
-    <!-- Botón EN -->
-    <button (click)="changeLanguage('en')" [class.bg-indigo-600]="translate.getCurrentLang() === 'en'"
-      [class.text-white]="translate.getCurrentLang() === 'en'"
-      class="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full font-medium hover:bg-indigo-500 transition-colors text-[0.7rem] sm:text-xs">
-      EN
-    </button>
+      <!-- Botón EN -->
+      <button
+        (click)="changeLanguage('en')"
+        [class.bg-indigo-600]="translate.getCurrentLang() === 'en'"
+        [class.text-white]="translate.getCurrentLang() === 'en'"
+        class="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full font-bold transition-colors text-[0.7rem] sm:text-xs
+              hover:bg-indigo-500
+              text-black dark:text-white">
+        <strong>EN</strong>
+      </button>
 
-    <!-- Botón ES -->
-    <button (click)="changeLanguage('es')" [class.bg-indigo-600]="translate.getCurrentLang() === 'es'"
-      [class.text-white]="translate.getCurrentLang() === 'es'"
-      class="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full font-medium hover:bg-indigo-500 transition-colors text-[0.7rem] sm:text-xs">
-      ES
-    </button>
+      <!-- Botón ES -->
+      <button
+        (click)="changeLanguage('es')"
+        [class.bg-indigo-600]="translate.getCurrentLang() === 'es'"
+        [class.text-white]="translate.getCurrentLang() === 'es'"
+        class="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full font-bold transition-colors text-[0.7rem] sm:text-xs
+              hover:bg-indigo-500
+              text-black dark:text-white">
+        <strong>ES</strong>
+      </button>
+
 
     <!-- Separador vertical -->
     <div class="h-4 sm:h-5 w-px bg-gray-300 dark:bg-gray-600 mx-0.5 sm:mx-1"></div>
@@ -33,7 +42,7 @@
 
         <!-- Circulo deslizante -->
         <div class="absolute w-3 h-3 sm:w-4 sm:h-4 bg-white rounded-full shadow-md transition-transform duration-300 z-10
-    peer-checked:translate-x-5 sm:peer-checked:translate-x-6" [class.translate-x-6]="isDarkMode"></div>
+  peer-checked:translate-x-5 sm:peer-checked:translate-x-6" [class.translate-x-6]="isDarkMode"></div>
 
         <!-- Icono luna (dark mode) -->
         <span
@@ -44,51 +53,100 @@
 
   </div>
 
-  <!-- Banner h-48 lg:h-[82vh] xxl:h-[76vh] -->
+
+  <!-- Banner -->
   <div id="banner" class="relative">
     <img src="assets/img/portada.jpg" class="w-full h-48 lg:h-[82vh] xxl:h-[76vh] object-cover object-center"
       alt="Banner">
 
     <!-- Texto con efecto de escritura -->
     <div class="absolute inset-0 flex items-center justify-center bg-black/30">
-      <h1 class="text-xl md:text-4xl font-bold text-white text-center px-4">
+      <strong class="text-xl md:text-4xl font-bold text-white text-center px-4">
         {{ displayedText }}<span class="border-r-4 border-white animate-pulse"></span>
-      </h1>
+      </strong>
     </div>
 
     <!-- Imagen de perfil -->
-    <div class="absolute -bottom-12 left-1/2 transform -translate-x-1/2 md:left-10 md:translate-x-0">
+    <div class="absolute -bottom-12 left-1/2 transform -translate-x-1/2
+            md:left-[5%] md:translate-x-0">
       <img src="assets/img/perfil.jpg" class="w-24 h-24 md:w-32 md:h-32 rounded-full border-4 border-white shadow-md"
         alt="Profile">
     </div>
+
   </div>
 
   <!-- Contenido -->
   <div class="pt-14 lg:pt-5 pb-6 px-6 text-center text-gray-900 dark:text-gray-200">
-    <h2 class="text-xl md:text-2xl font-semibold" [ngClass]="{'hidden': isSticky}">Mauricio Vereau</h2>
+    <h1 class="text-4xl md:text-6xl font-semibold" [ngClass]="{'hidden': isSticky}">Mauricio Vereau</h1>
 
     <!-- Menú de botones con clases dinámicas -->
-    <div
-      [ngClass]="{'fixed top-0 xlg:top-3 left-0 w-full bg-blue-50 dark:bg-gray-950 py-3 z-40': isSticky,'mt-5': !isSticky }"
-      class=" transition-all duration-200">
-      <div class="mt-1 flex md:justify-center justify-start space-x-4"
+    <div [ngClass]="{
+      'fixed top-0 left-0 w-full bg-white/10 dark:bg-gray-900/10 backdrop-blur-md py-3 z-40 shadow-md': isSticky,
+      'mt-5': !isSticky
+    }" class="transition-all duration-200 rounded-xl">
+      <div class="mt-1 flex md:justify-center justify-start space-x-2 px-4"
         [ngClass]="{'ml-2 justify-start': isSticky, 'justify-center': !isSticky}">
-        <button
-          class="flex items-center space-x-2 px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 rounded-lg shadow hover:bg-gray-300 dark:hover:bg-gray-600">
+        <button (click)="abrirModal()"
+          class="flex items-center space-x-2 px-4 py-2 bg-white/10 dark:bg-gray-900/10 backdrop-blur-md text-gray-900 dark:text-gray-200 rounded-lg shadow hover:bg-white/20 dark:hover:bg-gray-800/20">
           <span>📩</span>
           <span class="hidden lg:inline">Mensaje</span>
         </button>
         <button
-          class="flex items-center space-x-2 px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 rounded-lg shadow hover:bg-gray-300 dark:hover:bg-gray-600">
+          class="flex items-center space-x-2 px-4 py-2 bg-white/10 dark:bg-gray-900/10 backdrop-blur-md text-gray-900 dark:text-gray-200 rounded-lg shadow hover:bg-white/20 dark:hover:bg-gray-800/20">
           <span>📞</span>
           <span class="hidden lg:inline">Contacto</span>
         </button>
         <button
-          class="flex items-center space-x-2 px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 rounded-lg shadow hover:bg-gray-300 dark:hover:bg-gray-600">
+          class="flex items-center space-x-2 px-4 py-2 bg-white/10 dark:bg-gray-900/10 backdrop-blur-md text-gray-900 dark:text-gray-200 rounded-lg shadow hover:bg-white/20 dark:hover:bg-gray-800/20">
           <span>📍</span>
-          <span class="hidden lg:inline">Trujillo - Perú</span>
+          <span class="hidden lg:inline">Perú</span>
         </button>
       </div>
     </div>
   </div>
+
+
+  <!-- Modal -->
+  <div *ngIf="modalAbierto"
+    class="fixed z-50 inset-0 flex items-center justify-center bg-black bg-opacity-50 transition-opacity p-4"
+    (click)="cerrarModal()" (keydown.esc)="cerrarModal()" tabindex="0">
+
+    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-lg w-full sm:max-w-xl md:max-w-2xl lg:max-w-3xl
+              h-auto max-h-[90vh] overflow-y-auto transform transition-all scale-100 opacity-100"
+      (click)="$event.stopPropagation()">
+
+
+      <h2 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-white text-center mb-4">
+        Enviar Mensaje
+      </h2>
+
+
+      <form class="flex flex-col gap-4">
+        <input [(ngModel)]="nombre" name="nombre" placeholder="Nombre"
+          class="w-full p-3 border rounded dark:bg-gray-700 dark:text-white focus:ring-2 focus:ring-blue-500 text-lg"
+          required />
+
+        <input [(ngModel)]="email" name="email" type="email" placeholder="Correo"
+          class="w-full p-3 border rounded dark:bg-gray-700 dark:text-white focus:ring-2 focus:ring-blue-500 text-lg"
+          required />
+
+        <input [(ngModel)]="telefono" name="telefono" type="tel" placeholder="Teléfono"
+          class="w-full p-3 border rounded dark:bg-gray-700 dark:text-white focus:ring-2 focus:ring-blue-500 text-lg"
+          required />
+
+        <textarea [(ngModel)]="contenido" name="contenido" rows="4" placeholder="Mensaje"
+          class="w-full p-3 border rounded dark:bg-gray-700 dark:text-white focus:ring-2 focus:ring-blue-500 text-lg resize-none"
+          required></textarea>
+
+        <div class="flex flex-col sm:flex-row justify-end mt-4 gap-3">
+          <button type="button" (click)="cerrarModal()"
+            class="px-5 py-3 bg-gray-300 dark:bg-gray-600 rounded text-lg w-full sm:w-auto">Cancelar</button>
+          <button type="submit"
+            class="px-5 py-3 bg-blue-500 text-white rounded text-lg w-full sm:w-auto">Enviar</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
 </div>

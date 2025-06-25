@@ -1,0 +1,32 @@
+<div class="bg-white/10 dark:bg-slate-800/60  rounded-lg p-4 w-full max-w-lg mx-auto md:mx-0 shadow-lg transform transition-transform duration-300 hover:scale-105">
+  <p class="text-right text-xs text-slate-300">
+    {{ certificado.certDate}}
+  </p>
+  <h4 class="text-sm font-semibold text-gray-900 dark:text-white flex flex-wrap items-center mt-1">
+    {{ certificado.certName }}
+  </h4>
+  <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">
+    {{ certificado.entity }}
+  </p>
+  <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">
+    {{ certificado.id}}
+  </p>
+
+  <div class="relative w-fit group mt-3">
+    <a [href]="certificado.url" target="_blank" class="text-black dark:text-slate-100">
+      <span class="title text-transparent bg-clip-text font-bold relative bg-gradient-to-r from-gray-900 via-gray-900 to-gray-900
+             dark:from-white dark:via-white dark:to-white">
+        {{ viewCredText }}
+        <span class="absolute bottom-0 left-0 w-full h-[2px] title-decorator" aria-hidden="true"></span>
+      </span>
+    </a>
+
+    <div
+      class="absolute left-0 bottom-full mb-2 w-72 h-48 bg-white/10 shadow-xl rounded-xl opacity-0 group-hover:opacity-100 transition-opacity z-10 pointer-events-none">
+      <img
+        [src]="certificado.view + '&colorScheme=light&viewport.isMobile=true&viewport.deviceScaleFactor=1&viewport.width=840&viewport.height=600'"
+        alt="preview" loading="lazy"
+        class="w-full h-full object-cover rounded-xl">
+    </div>
+  </div>
+</div>

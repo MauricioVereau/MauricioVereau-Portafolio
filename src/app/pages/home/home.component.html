@@ -1,34 +1,62 @@
 <div class="relative bg-white dark:bg-gray-900 px-2 py-2">
 
-  <!-- Botón izquierdo -->
-  <button (click)="prevComponent()" class="absolute left-4 top-1/2 z-10 -translate-y-1/2 p-4 rounded-full
-          bg-gray-800/30 dark:bg-gray-300/20 backdrop-blur-md
-          transition duration-300 hover:bg-gray-800/60 dark:hover:bg-gray-300/40
-          md:left-8">
-    <svg class="size-6 text-white dark:text-gray-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+  <!-- Botón izquierdo (solo aparece cuando isSticky es true) -->
+  <button *ngIf="isSticky" (click)="prevComponent()"
+    class="hidden sm:flex fixed left-4 top-1/2 z-50 -translate-y-1/2 p-4 rounded-full bg-white/10 dark:bg-gray-900/10 backdrop-blur-md transition duration-300 hover:bg-gray-800/60 dark:hover:bg-gray-300/40 md:left-8">
+    <svg class="size-6 text-gray-600 dark:text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
       stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
     </svg>
   </button>
 
-  <!-- Botón derecho -->
-  <button (click)="nextComponent()" class="absolute right-4 top-1/2 z-10 -translate-y-1/2 p-4 rounded-full
-          bg-gray-800/30 dark:bg-gray-300/20 backdrop-blur-md
-          transition duration-300 hover:bg-gray-800/60 dark:hover:bg-gray-300/40
-          md:right-8">
-    <svg class="size-6 text-white dark:text-gray-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+  <!-- Botón derecho (solo aparece cuando isSticky es true) -->
+  <button *ngIf="isSticky" (click)="nextComponent()"
+    class="hidden sm:flex fixed right-4 top-1/2 z-50 -translate-y-1/2 p-4 rounded-full bg-white/10 dark:bg-gray-900/10 backdrop-blur-md transition duration-300 hover:bg-gray-800/60 dark:hover:bg-gray-300/40 md:right-8">
+    <svg class="size-6 text-gray-600 dark:text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
       stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
     </svg>
   </button>
 
+  <!-- Indicadores de Paginación -->
+  <div *ngIf="isSticky" [ngClass]="{
+    'bottom-8': !isFooterVisible,
+    'bottom-24': isFooterVisible
+  }" class="fixed left-1/2 transform -translate-x-1/2 flex space-x-4 z-50 transition-all duration-300">
+    <!-- Pelotita 1 -->
+    <div class="w-4 h-4 rounded-full transition-all duration-300 transform hover:scale-110 cursor-pointer" [ngClass]="{
+      'bg-blue-500 shadow-lg': currentIndex === 0,
+      'bg-gray-300 dark:bg-gray-700': currentIndex !== 0
+    }"></div>
+
+    <!-- Pelotita 2 -->
+    <div class="w-4 h-4 rounded-full transition-all duration-300 transform hover:scale-110 cursor-pointer" [ngClass]="{
+      'bg-blue-500 shadow-lg': currentIndex === 1,
+      'bg-gray-300 dark:bg-gray-700': currentIndex !== 1
+    }"></div>
+
+    <!-- Pelotita 3 -->
+    <div class="w-4 h-4 rounded-full transition-all duration-300 transform hover:scale-110 cursor-pointer" [ngClass]="{
+      'bg-blue-500 shadow-lg': currentIndex === 2,
+      'bg-gray-300 dark:bg-gray-700': currentIndex !== 2
+    }"></div>
+  </div>
+
+
+
   <!-- Contenedor de contenido -->
-  <div class="flex justify-center items-center h-full">
-    <div class="w-full px-4 sm:px-8">
-      <app-vision *ngIf="currentIndex === 0"></app-vision>
-      <app-about *ngIf="currentIndex === 1"></app-about>
-      <app-experience *ngIf="currentIndex === 2"></app-experience>
+  <div class="w-full h-full overflow-hidden" (touchstart)="onTouchStart($event)" (touchmove)="onTouchMove($event)"
+    (touchend)="onTouchEnd()">
+    <div class="transition-transform duration-300 ease-out"
+      [ngStyle]="{ transform: 'translateX(' + swipeDeltaX + 'px)' }">
+      <ng-container [ngSwitch]="currentIndex">
+        <div *ngSwitchCase="0"><app-vision /></div>
+        <div *ngSwitchCase="1"><app-experience /></div>
+        <div *ngSwitchCase="2"><app-about /></div>
+      </ng-container>
     </div>
   </div>
+
+
 
 </div>

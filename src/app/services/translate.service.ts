@@ -6,6 +6,7 @@ import { BehaviorSubject, catchError, of } from 'rxjs';
   providedIn: 'root'
 })
 export class TranslateService {
+
   private currentLangSubject = new BehaviorSubject<string>(this.getSavedLang() || 'en');
   public currentLang$ = this.currentLangSubject.asObservable();
   private translations: any = {};

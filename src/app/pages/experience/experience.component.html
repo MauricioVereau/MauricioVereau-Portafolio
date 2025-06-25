@@ -1,73 +1,245 @@
-<div class=" overflow-hidden bg-white dark:bg-gray-900 mx-auto max-w-7xl px-6 lg:px-8">
-  <div class="py-4 px-4 sm:px-0 ">
-    <h3 class="text-base font-semibold text-gray-900 dark:text-gray-100">Applicant Information</h3>
-    <p class="mt-1 max-w-2xl text-sm text-gray-500 dark:text-gray-400">Personal details and application.</p>
-  </div>
-  <div class="mt-6 border-t border-gray-100 dark:border-gray-800">
-    <dl class="divide-y divide-gray-100 dark:divide-gray-800">
-      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-        <dt class="text-sm font-medium text-gray-900 dark:text-gray-300">Full name</dt>
-        <dd class="mt-1 text-sm text-gray-700 dark:text-gray-400 sm:col-span-2 sm:mt-0">Margot Foster</dd>
+<div class="bg-white py-24 sm:py-32 dark:bg-gray-900">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto lg:mx-0 flex items-center justify-between">
+      <div>
+        <h2 class="text-4xl font-semibold tracking-tight text-pretty text-gray-900 dark:text-white sm:text-5xl">
+          {{ experienceData.title }}
+        </h2>
+        <p class="mt-4 text-xl font-semibold tracking-tight text-pretty text-gray-700 dark:text-gray-400 sm:text-2xl">
+          {{ experienceData.name }} <fa-icon [icon]="iconCd"></fa-icon>.
+        </p>
+
+        <div class="mt-2 flex flex-col lg:flex-row lg:items-center lg:gap-6">
+          <!-- Descripción -->
+          <p class="text-lg text-gray-600 dark:text-gray-300 lg:flex-1">
+            {{ experienceData.description }}
+          </p>
+
+          <!-- Botón de descarga -->
+          <a href="assets/doc/Cv-MauricioVereau.pdf" download
+            class="mt-4 lg:mt-0 inline-flex items-center justify-center rounded-xl border border-gray-400 px-6 py-3 text-gray-800 dark:text-gray-200 font-semibold hover:bg-gray-100 hover:dark:bg-gray-800 transition text-center">
+            <fa-icon [icon]="iconDownload" class="mr-2"></fa-icon>
+            {{ experienceData.button }}
+          </a>
+        </div>
       </div>
-      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-        <dt class="text-sm font-medium text-gray-900 dark:text-gray-300">Application for</dt>
-        <dd class="mt-1 text-sm text-gray-700 dark:text-gray-400 sm:col-span-2 sm:mt-0">Backend Developer</dd>
+    </div>
+
+
+
+    <h3 class="mt-20 sm:mt-16 text-xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-2xl text-center">
+      <fa-icon [icon]="iconStudy"></fa-icon> {{ experienceData.educationTit }}
+    </h3>
+
+    <div class="mx-auto mt-6 mb-10 sm:mb-0 grid max-w-2xl grid-cols-1 gap-x-6 gap-y-8 sm:gap-y-12 lg:gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+      <div class="bg-white dark:bg-slate-800/60  rounded-lg p-4 w-full max-w-lg mx-auto md:mx-0 shadow-lg transform transition-transform duration-300 hover:scale-105">
+        <article class="flex max-w-xl flex-col items-start justify-between">
+          <div class="flex items-center gap-x-4 text-xs">
+            <time datetime="2020-03-16" class="text-gray-500 dark:text-gray-400">{{ experienceData.eduDate1}}</time>
+            <p
+              class="relative z-10 rounded-full bg-gray-200 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-400 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700">
+              {{experienceData.tec }}
+            </p>
+          </div>
+          <div class="group relative">
+            <h3
+              class="mt-3 text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600 dark:text-white dark:group-hover:text-gray-300">
+              <p>
+                <span class="absolute inset-0"></span>
+                {{experienceData.eduDesc1 }}
+              </p>
+            </h3>
+          </div>
+          <div class="relative mt-8 flex items-center gap-x-4">
+            <img src="assets/img/cibertec.png" alt="" class="size-10 rounded-full bg-gray-50 dark:bg-gray-800" />
+            <div class="text-sm/6">
+              <p class="font-semibold text-gray-900 dark:text-white">
+                <span class="absolute inset-0"></span>
+                Cibertec
+              </p>
+              <p class="text-gray-600 dark:text-gray-400">Trujillo - Perú </p>
+            </div>
+          </div>
+        </article>
       </div>
-      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-        <dt class="text-sm font-medium text-gray-900 dark:text-gray-300">Email address</dt>
-        <dd class="mt-1 text-sm text-gray-700 dark:text-gray-400 sm:col-span-2 sm:mt-0">margotfosterexample.com</dd>
+
+      <div class="bg-white/10 dark:bg-slate-800/60  rounded-lg p-4 w-full max-w-lg mx-auto md:mx-0 shadow-lg transform transition-transform duration-300 hover:scale-105">
+        <article class="flex max-w-xl flex-col items-start justify-between">
+          <div class="flex items-center gap-x-4 text-xs">
+            <time datetime="2020-03-16" class="text-gray-500 dark:text-gray-400">{{ experienceData.eduDate2 }}</time>
+            <p
+              class="relative z-10 rounded-full bg-gray-200 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-400 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700">
+              Bachiller
+            </p>
+          </div>
+          <div class="group relative">
+            <h3
+              class="mt-3 text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600 dark:text-white dark:group-hover:text-gray-300">
+              <p>
+                <span class="absolute inset-0"></span>
+                {{experienceData.eduDesc2 }}
+              </p>
+            </h3>
+          </div>
+          <div class="relative mt-8 flex items-center gap-x-4">
+            <img src="assets/img/upn.png" alt="" class="size-10 rounded-full bg-gray-50 dark:bg-gray-800" />
+            <div class="text-sm/6">
+              <p class="font-semibold text-gray-900 dark:text-white">
+
+                <span class="absolute inset-0"></span>
+                Universidad Privada del Norte
+
+              </p>
+              <p class="text-gray-600 dark:text-gray-400">Trujillo - Perú</p>
+            </div>
+          </div>
+        </article>
       </div>
-      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-        <dt class="text-sm font-medium text-gray-900 dark:text-gray-300">Salary expectation</dt>
-        <dd class="mt-1 text-sm text-gray-700 dark:text-gray-400 sm:col-span-2 sm:mt-0">$120,000</dd>
+    </div>
+
+    <h3 class="mt-20 sm:mt-16 text-xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-2xl text-center">
+      <fa-icon [icon]="iconBusiness"></fa-icon> {{ experienceData.experienceTit }}
+    </h3>
+
+    <div class="mx-auto mt-6 mb-10 sm:mb-0 grid max-w-2xl grid-cols-1 gap-x-6 gap-y-8 sm:gap-y-12 lg:gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+
+      <div class="bg-white/10 dark:bg-slate-800/60  rounded-lg p-4 w-full max-w-lg mx-auto md:mx-0 shadow-lg transform transition-transform duration-300 hover:scale-105">
+        <article class="flex max-w-xl flex-col items-start justify-between">
+          <div class="flex items-center gap-x-4 text-xs">
+            <time datetime="2020-03-16" class="text-gray-500 dark:text-gray-400">{{ experienceData.expDate1 }}</time>
+            <p
+              class="relative z-10 rounded-full bg-gray-200 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-400 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700">
+              Html, Css, JS
+            </p>
+            <p
+              class="relative z-10 rounded-full bg-gray-200 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-400 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700">
+              Java
+            </p>
+
+          </div>
+          <div class="group relative">
+            <h3
+              class="mt-3 text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600 dark:text-white dark:group-hover:text-gray-300">
+              <p>
+                <span class="absolute inset-0"></span>
+                {{ experienceData.expPosition1 }}
+              </p>
+            </h3>
+            <p class="mt-5 line-clamp-3 text-sm/6 text-gray-600 dark:text-gray-400">
+              {{ experienceData.expDesc1 }}
+            </p>
+          </div>
+          <div class="relative mt-8 flex items-center gap-x-4">
+            <img src="assets/img/neurocom.png" alt="" class="size-10 rounded-full bg-gray-50 dark:bg-gray-800" />
+            <div class="text-sm/6">
+              <p class="font-semibold text-gray-900 dark:text-white">
+
+                <span class="absolute inset-0"></span>
+                {{ experienceData.expName1 }}
+
+              </p>
+              <p class="text-gray-600 dark:text-gray-400">Lima - Perú </p>
+            </div>
+          </div>
+        </article>
       </div>
-      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-        <dt class="text-sm font-medium text-gray-900 dark:text-gray-300">Salary expectation</dt>
-        <dd class="mt-1 text-sm text-gray-700 dark:text-gray-400 sm:col-span-2 sm:mt-0">$120,000</dd>
+
+      <div class="bg-white/10 dark:bg-slate-800/60  rounded-lg p-4 w-full max-w-lg mx-auto md:mx-0 shadow-lg transform transition-transform duration-300 hover:scale-105">
+        <article class="flex max-w-xl flex-col items-start justify-between">
+          <div class="flex items-center gap-x-4 text-xs">
+            <time datetime="2020-03-16" class="text-gray-500 dark:text-gray-400">{{ experienceData.expDate2 }}</time>
+            <p
+              class="relative z-10 rounded-full bg-gray-200 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-400 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700">
+              Angular
+            </p>
+
+            <p
+              class="relative z-10 rounded-full bg-gray-200 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-400 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700">
+              Spring
+            </p>
+
+            <p
+              class="relative z-10 rounded-full bg-gray-200 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-400 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700">
+              .Net
+            </p>
+          </div>
+          <div class="group relative">
+            <h3
+              class="mt-3 text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600 dark:text-white dark:group-hover:text-gray-300">
+              <p>
+                <span class="absolute inset-0"></span>
+                {{ experienceData.expPosition2 }}
+              </p>
+            </h3>
+            <p class="mt-5 line-clamp-3 text-sm/6 text-gray-600 dark:text-gray-400">
+              {{ experienceData.expDesc2 }}
+            </p>
+          </div>
+          <div class="relative mt-8 flex items-center gap-x-4">
+            <img src="assets/img/ntt-data.png" alt="" class="size-10 rounded-full bg-gray-50 dark:bg-gray-800" />
+            <div class="text-sm/6">
+              <p class="font-semibold text-gray-900 dark:text-white">
+
+                <span class="absolute inset-0"></span>
+                {{ experienceData.expName2 }}
+
+              </p>
+              <p class="text-gray-600 dark:text-gray-400">Trujillo - Perú</p>
+            </div>
+          </div>
+        </article>
       </div>
-      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-        <dt class="text-sm font-medium text-gray-900 dark:text-gray-300">Salary expectation</dt>
-        <dd class="mt-1 text-sm text-gray-700 dark:text-gray-400 sm:col-span-2 sm:mt-0">$120,000</dd>
+
+      <div
+        class="bg-white/10 dark:bg-slate-800/60  rounded-lg p-4 w-full max-w-lg mx-auto md:mx-0 shadow-lg transform transition-transform duration-300 hover:scale-105">
+        <article class="flex max-w-xl flex-col items-start justify-between">
+          <div class="flex items-center gap-x-4 text-xs">
+            <time datetime="2020-03-16" class="text-gray-500 dark:text-gray-400">{{ experienceData.expDate3 }}</time>
+            <p class="relative z-10 rounded-full bg-gray-200 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-400 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700">
+              Angular
+            </p>
+
+            <p class="relative z-10 rounded-full bg-gray-200 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-400 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700">
+              .Net
+            </p>
+          </div>
+          <div class="group relative">
+            <h3 class="mt-3 text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600 dark:text-white dark:group-hover:text-gray-300">
+              <p>
+                {{ experienceData.expPosition3 }}
+              </p>
+            </h3>
+            <p class="mt-5 line-clamp-3 text-sm/6 text-gray-600 dark:text-gray-400">
+              {{ experienceData.expDesc3 }}
+            </p>
+          </div>
+          <div class="relative mt-8 flex items-center gap-x-4">
+            <img src="assets/img/caja-trujillo.png" alt="" class="size-10 rounded-full bg-gray-50 dark:bg-gray-800" />
+            <div class="text-sm/6">
+              <p class="font-semibold text-gray-900 dark:text-white">
+
+                Caja Trujillo
+
+              </p>
+              <p class="text-gray-600 dark:text-gray-400">Trujillo - Perú</p>
+            </div>
+          </div>
+        </article>
       </div>
-      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-        <dt class="text-sm font-medium text-gray-900 dark:text-gray-300">About</dt>
-        <dd class="mt-1 text-sm text-gray-700 dark:text-gray-400 sm:col-span-2 sm:mt-0">Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat. Excepteur qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia proident. Irure nostrud pariatur mollit ad adipisicing reprehenderit deserunt qui eu.</dd>
-      </div>
-      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-        <dt class="text-sm font-medium text-gray-900 dark:text-gray-300">Attachments</dt>
-        <dd class="mt-2 text-sm text-gray-900 dark:text-gray-100 sm:col-span-2 sm:mt-0">
-          <ul role="list" class="divide-y divide-gray-100 dark:divide-gray-800 rounded-md border border-gray-200 dark:border-gray-700">
-            <li class="flex items-center justify-between py-4 pr-5 pl-4 text-sm">
-              <div class="flex w-0 flex-1 items-center">
-                <svg class="size-5 shrink-0 text-gray-400 dark:text-gray-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
-                  <path fill-rule="evenodd" d="M15.621 4.379a3 3 0 0 0-4.242 0l-7 7a3 3 0 0 0 4.241 4.243h.001l.497-.5a.75.75 0 0 1 1.064 1.057l-.498.501-.002.002a4.5 4.5 0 0 1-6.364-6.364l7-7a4.5 4.5 0 0 1 6.368 6.36l-3.455 3.553A2.625 2.625 0 1 1 9.52 9.52l3.45-3.451a.75.75 0 1 1 1.061 1.06l-3.45 3.451a1.125 1.125 0 0 0 1.587 1.595l3.454-3.553a3 3 0 0 0 0-4.242Z" clip-rule="evenodd" />
-                </svg>
-                <div class="ml-4 flex min-w-0 flex-1 gap-2">
-                  <span class="truncate font-medium dark:text-gray-300">resume_back_end_developer.pdf</span>
-                  <span class="shrink-0 text-gray-400 dark:text-gray-500">2.4mb</span>
-                </div>
-              </div>
-              <div class="ml-4 shrink-0">
-                <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300">Download</a>
-              </div>
-            </li>
-            <li class="flex items-center justify-between py-4 pr-5 pl-4 text-sm">
-              <div class="flex w-0 flex-1 items-center">
-                <svg class="size-5 shrink-0 text-gray-400 dark:text-gray-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
-                  <path fill-rule="evenodd" d="M15.621 4.379a3 3 0 0 0-4.242 0l-7 7a3 3 0 0 0 4.241 4.243h.001l.497-.5a.75.75 0 0 1 1.064 1.057l-.498.501-.002.002a4.5 4.5 0 0 1-6.364-6.364l7-7a4.5 4.5 0 0 1 6.368 6.36l-3.455 3.553A2.625 2.625 0 1 1 9.52 9.52l3.45-3.451a.75.75 0 1 1 1.061 1.06l-3.45 3.451a1.125 1.125 0 0 0 1.587 1.595l3.454-3.553a3 3 0 0 0 0-4.242Z" clip-rule="evenodd" />
-                </svg>
-                <div class="ml-4 flex min-w-0 flex-1 gap-2">
-                  <span class="truncate font-medium dark:text-gray-300">coverletter_back_end_developer.pdf</span>
-                  <span class="shrink-0 text-gray-400 dark:text-gray-500">4.5mb</span>
-                </div>
-              </div>
-              <div class="ml-4 shrink-0">
-                <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300">Download</a>
-              </div>
-            </li>
-          </ul>
-        </dd>
-      </div>
-    </dl>
+
+      <!-- More posts... -->
+    </div>
+
+
+    <h3 class="mt-20 sm:mt-16 text-xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-2xl text-center">
+      <fa-icon [icon]="iconResumen"></fa-icon> {{ certificationsData.title }}
+    </h3>
+
+    <div class="mx-auto mt-6 mb-10 sm:mb-0 grid max-w-2xl grid-cols-1 gap-x-6 gap-y-8 sm:gap-y-12 lg:gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+      <ng-container *ngFor="let cert of certificationsData.cert">
+        <app-view-card [certificado]="cert" [viewCredText]="certificationsData.viewCred"></app-view-card>
+      </ng-container>
+    </div>
+
   </div>
 </div>

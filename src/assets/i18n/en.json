@@ -2,7 +2,7 @@
   "header": {
     "welcomeMessages": [
       "Welcome to my digital world",
-      "I'm Full Stack Developer",
+      "I'm Web Developer",
       "I build digital experiences"
     ]
   },
@@ -10,11 +10,85 @@
     "tagline": "Transforming ideas into software",
     "title": "Designing and building digital experiences",
     "description": "I create high-performance digital solutions with the best technologies. From the front end to the back end, I develop agile, robust, and adaptable software.",
-    "feature1Title": "Push to deploy",
-    "feature1Desc": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
-    "feature2Title": "SSL certificates",
-    "feature2Desc": "Anim aute id magna aliqua ad ad non deserunt sunt.",
-    "feature3Title": "Database backups",
-    "feature3Desc": "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus."
+    "serviceTitle1": "Digital solutions",
+    "serviceTitle2": "Flexible interface",
+    "serviceTitle3": "Information management",
+    "serviceDesc1": "Not every business needs the same thing, which is why I develop customized software that adapts to your needs. From web platforms to integrated systems, I create tools that optimize your business, improve processes, and boost your growth.",
+    "serviceDesc2": "Your clients and administrators will be able to access your site from mobile devices, tablets, or computers with complete ease. I develop solutions with responsive technology that adapt to any screen, offering intuitive navigation and optimal performance for everyone.",
+    "serviceDesc3": "Information is the heart of your business, and a well-structured database makes all the difference. I implement secure, optimized, and scalable systems with automatic backup and rapid access so you always stay in control."
+  },
+  "experience": {
+    "tec": "Technician",
+    "button":"Download CV",
+    "title": "Professional Profile",
+    "educationTit": "Professional Education",
+    "experienceTit": "Work experience",
+    "certificationTit": "Certifications",
+    "name": "Web Developer",
+    "description": "I have over three years of experience in scalable web applications for sectors such as telecommunications, banking, and public administration. I specialize in technologies such as Angular, Spring Boot, and .NET Core. I focus on efficient, maintainable, and user-oriented solutions, and I have the ability to work in agile environments, proactively solve problems, and collaborate in multidisciplinary teams.",
+    "eduName1": "Cibertec",
+    "eduDesc1": "Computing and Information Technology",
+    "eduDate1": "Mar 2018 - Aug 2022",
+    "eduName2": "Private University of the North",
+    "eduDesc2": "Computer Systems Engineering",
+    "eduDate2": "Jun 2024 - Present",
+    "expName1": "NeuroCom",
+    "expPosition1": "Systems Assistant",
+    "expDesc1": "Managing client websites and providing internal technical support, troubleshooting issues and ensuring the functionality of applications.",
+    "expDate1": "Dec 2020 - Sep 2021",
+    "expName2": "NTT Data",
+    "expPosition2": "Center Junior",
+    "expDesc2": "I was part of the team that developed forms for legal procedures for the government of the Balearic Islands, streamlining the legal processes.",
+    "expDate2": "Nov 2021 - Dec 2023",
+    "expName3": "Caja Trujillo",
+    "expPosition3": "Software Development Assistant",
+    "expDesc3": "I handled tickets for changes to the main website, supported technical issues, and developed. Highlights included requests for card blocking on the website and an internal solution.",
+    "expDate3": "Jun 2024 - Jun 2025"
+  },
+  "certifications": {
+    "title": "Certifications",
+    "viewCred": "View Certificate",
+    "cert": [
+      {
+        "certName": "Scrum Fundamentals Certified",
+        "entity": "SCRUMstudy",
+        "certDate": "2021-09",
+        "id": "875907",
+        "url": "https://drive.google.com/file/d/1EhCtVKmpGHuy4l54Ujo2z54mPwXSo0Z3/view",
+        "view": "https://api.microlink.io/?url=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F1EhCtVKmpGHuy4l54Ujo2z54mPwXSo0Z3%2Fview&screenshot=true&embed=screenshot.url"
+      },
+      {
+        "certName": "Cloud Computing",
+        "entity": "National University of Engineering",
+        "certDate": "2025-02",
+        "id": "017 - 0016498",
+        "url": "https://drive.google.com/file/d/1pnXnMTTjoHcDgYPS_yJD_Kcr7tAaILld/view",
+        "view": "https://api.microlink.io/?url=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F1pnXnMTTjoHcDgYPS_yJD_Kcr7tAaILld%2Fview&screenshot=true&embed=screenshot.url"
+      },
+      {
+        "certName": "Python Fundamentals",
+        "entity": "Cisco Networking Academy",
+        "certDate": "2025-05",
+        "id": "00-0000000",
+        "url": "https://drive.google.com/file/d/1TA-14CW5Rt5yKZ6d4JYOp3ONa87a6KMC/view",
+        "view": "https://api.microlink.io/?url=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F1TA-14CW5Rt5yKZ6d4JYOp3ONa87a6KMC%2Fview&screenshot=true&embed=screenshot.url"
+      },
+      {
+        "certName": "Introduction to Cybersecurity",
+        "entity": "Cisco Networking Academy",
+        "certDate": "2020-09",
+        "id": "00-0000000",
+        "url": "https://drive.google.com/file/d/18JpXEEuRKLXqEj2N4pUWRD8HIeQsyznn/view",
+        "view": "https://api.microlink.io/?url=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F18JpXEEuRKLXqEj2N4pUWRD8HIeQsyznn%2Fview&screenshot=true&embed=screenshot.url"
+      },
+      {
+        "certName": "Tech. Prof. in Computing & IT",
+        "entity": "CIBERTEC",
+        "certDate": "2022-08",
+        "id": "CIT0002971",
+        "url": "https://drive.google.com/file/d/1fkU-uXqxfVtQl_1nwTY9zV7IuC4BhmZ1/view",
+        "view": "https://api.microlink.io/?url=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F1fkU-uXqxfVtQl_1nwTY9zV7IuC4BhmZ1%2Fview&screenshot=true&embed=screenshot.url"
+      }
+    ]
   }
 }

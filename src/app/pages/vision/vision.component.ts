@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '../../services/translate.service';
-import { faComputer } from '@fortawesome/free-solid-svg-icons';
+import { faComputer, faDatabase, faMobileAndroidAlt } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-vision',
@@ -10,6 +10,8 @@ import { faComputer } from '@fortawesome/free-solid-svg-icons';
 export class VisionComponent {
 
   iconPc = faComputer;
+  iconNt = faMobileAndroidAlt;
+  iconDb = faDatabase
 
   workflowTexts: any = {};
 

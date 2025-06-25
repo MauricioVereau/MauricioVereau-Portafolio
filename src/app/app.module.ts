@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { VisionComponent } from './pages/vision/vision.component';
+import { ViewCardComponent } from './components/view-card/view-card.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { VisionComponent } from './pages/vision/vision.component';
     AboutComponent,
     ExperienceComponent,
     VisionComponent,
+    ViewCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +33,7 @@ import { VisionComponent } from './pages/vision/vision.component';
     FontAwesomeModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

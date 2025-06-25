@@ -1,5 +1,6 @@
-import { Component, HostListener, OnInit, Renderer2 } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { TranslateService } from '../../services/translate.service';
+import { StickyService } from '../../services/sticky.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,6 +8,13 @@ import { TranslateService } from '../../services/translate.service';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent implements OnInit {
+
+  modalAbierto = false; // Estado del modal
+
+  nombre = '';
+  email = '';
+  telefono = '';
+  contenido = '';
 
   texts: string[] = [];
   displayedText = "";
@@ -20,15 +28,26 @@ export class NavbarComponent implements OnInit {
   private typingSpeed = 50; // Velocidad de escritura
   private deletingSpeed = 0; // Velocidad de borrado
   private pauseBeforeDeleting = 1000; // Pausa antes de borrar
-  private typingTimeout: any; // 🛑 Referencia al `setTimeout()`
+  private typingTimeout: any; // Referencia al `setTimeout()`
 
-  constructor(private renderer: Renderer2, public translate: TranslateService) {}
+  constructor(
+    public translate: TranslateService,
+    private stickyService: StickyService // Inyectar el servicio
+  ) {}
 
   ngOnInit() {
     this.loadTexts();
     this.translate.currentLang$.subscribe(() => {
       this.loadTexts();
     });
+  }
+
+  abrirModal() {
+    this.modalAbierto = true;
+  }
+
+  cerrarModal() {
+    this.modalAbierto = false;
   }
 
   /**
@@ -47,18 +66,16 @@ export class NavbarComponent implements OnInit {
   updateTexts(newTexts: string[]) {
     if (JSON.stringify(newTexts) === JSON.stringify(this.texts)) return; // Evita cambios innecesarios
 
-    // 🛑 Limpiar cualquier animación previa para evitar solapamiento de velocidad
     clearTimeout(this.typingTimeout);
 
     const currentText = this.displayedText;
     this.texts = newTexts;
 
-    // Mantener la animación donde quedó
     const newIndex = this.texts.indexOf(currentText);
     this.textIndex = newIndex !== -1 ? newIndex : 0;
     this.charIndex = this.isDeleting ? currentText.length : 0;
 
-    this.typeEffect(); // 🔥 Reiniciar sin solapar timers
+    this.typeEffect();
   }
 
   /**
@@ -105,7 +122,7 @@ export class NavbarComponent implements OnInit {
   }
 
   /**
-   * Detecta el scroll para hacer sticky el navbar.
+   * Detecta el scroll para hacer sticky el navbar y actualiza el servicio.
    */
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -113,6 +130,7 @@ export class NavbarComponent implements OnInit {
     if (banner) {
       const bannerBottom = banner.getBoundingClientRect().bottom;
       this.isSticky = bannerBottom <= 0;
+      this.stickyService.setStickyState(this.isSticky); // Notificar a otros componentes
     }
   }
 }
