@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, OnInit, Output, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SendEmailService } from '../../services/send-email.service';
 import { faCheckCircle, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
@@ -15,8 +15,9 @@ declare global {
   templateUrl: './send-email.component.html',
   styleUrls: ['./send-email.component.css']
 })
-export class SendEmailComponent implements OnInit, AfterViewInit {
+export class SendEmailComponent implements OnInit, AfterViewInit, OnChanges {
   @Output() cerrar = new EventEmitter<void>();
+  @Input() isDarkMode: boolean = false;
 
   iconPlane = faPaperPlane;
   iconSuccess = faCheckCircle;
@@ -43,6 +44,12 @@ export class SendEmailComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.initTurnstileWithRetry();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['isDarkMode'] && !changes['isDarkMode'].firstChange) {
+      this.renderTurnstile();
+    }
   }
 
   private initTurnstileWithRetry(attempt: number = 0): void {
@@ -73,13 +80,10 @@ export class SendEmailComponent implements OnInit, AfterViewInit {
       window.turnstile.remove(this.turnstileWidgetId);
     }
 
-    // Obtén el modo actual desde localStorage o desde un servicio/global
-    const isDark = JSON.parse(localStorage.getItem('darkMode') || 'false');
-
     try {
       this.turnstileWidgetId = window.turnstile.render(container, {
         sitekey: '0x4AAAAAABiXIlAgVL2xQnjE',
-        theme: isDark ? 'dark' : 'light',
+        theme: this.isDarkMode ? 'dark' : 'light',
         size: 'normal',
         callback: (token: string) => {
           this.contactoForm.get('turnstileToken')?.setValue(token);

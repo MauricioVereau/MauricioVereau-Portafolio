@@ -85,7 +85,7 @@
           <fa-icon [icon]="iconMsj"></fa-icon>
           <span class="hidden lg:inline">{{ translate.getTranslation('navbar.mensaje') }}</span>
         </button>
-        <button
+        <button (click)="abrirModalRedes()"
           class="flex items-center space-x-2 px-4 py-2 bg-white/10 dark:bg-gray-900/10 backdrop-blur-md text-gray-900 dark:text-gray-200 rounded-lg shadow hover:bg-white/20 dark:hover:bg-gray-800/20">
           <fa-icon [icon]="iconRed"></fa-icon>
           <span class="hidden lg:inline">{{ translate.getTranslation('navbar.contacto') }}</span>
@@ -100,7 +100,7 @@
   </div>
 
 
-  <!-- Modal -->
+  <!-- Modal Envío Mensaje-->
   <div *ngIf="modalAbierto"
     class="fixed z-50 inset-0 flex items-center justify-center bg-black bg-opacity-50 transition-opacity p-4"
     (click)="cerrarModal()" (keydown.esc)="cerrarModal()" tabindex="0">
@@ -110,8 +110,24 @@
       w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl
       h-auto max-h-[90vh] sm:max-h-[95vh]
       transform transition-all duration-300 ease-in-out">
-        <app-send-email *ngIf="modalAbierto" (cerrar)="cerrarModal()"></app-send-email>
+        <app-send-email [isDarkMode]="isDarkMode" *ngIf="modalAbierto" (cerrar)="cerrarModal()"></app-send-email>
       </div>
     </div>
   </div>
+
+  <!-- Modal Redes Sociales -->
+  <div *ngIf="modalRedesAbierto"
+    class="fixed z-50 inset-0 flex items-center justify-center bg-black bg-opacity-50 transition-opacity p-4"
+    (click)="cerrarModalRedes()" (keydown.esc)="cerrarModalRedes()" tabindex="0">
+
+    <div class="relative w-full h-full flex items-center justify-center">
+      <div class="border border-gray-200 dark:border-gray-700 bg-white/10 dark:bg-gray-900/10 backdrop-blur-md rounded-xl shadow-xl overflow-hidden flex flex-col
+      w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl
+      h-auto max-h-[90vh] sm:max-h-[95vh]
+      transform transition-all duration-300 ease-in-out">
+        <app-social-media *ngIf="modalRedesAbierto" (cerrar)="cerrarModalRedes()"></app-social-media>
+      </div>
+    </div>
+  </div>
+
 </div>

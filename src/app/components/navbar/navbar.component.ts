@@ -16,6 +16,7 @@ export class NavbarComponent implements OnInit {
   iconDownload = faFileDownload;
 
   modalAbierto = false; // Estado del modal
+  modalRedesAbierto = false;
 
   texts: string[] = [];
   displayedText = "";
@@ -50,6 +51,16 @@ export class NavbarComponent implements OnInit {
 
   cerrarModal() {
     this.modalAbierto = false;
+    document.body.classList.remove('overflow-hidden');
+  }
+
+  abrirModalRedes() {
+    this.modalRedesAbierto = true;
+    document.body.classList.add('overflow-hidden');
+  }
+
+  cerrarModalRedes() {
+    this.modalRedesAbierto = false;
     document.body.classList.remove('overflow-hidden');
   }
 

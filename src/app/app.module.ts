@@ -15,6 +15,7 @@ import { VisionComponent } from './pages/vision/vision.component';
 import { ViewCardComponent } from './components/view-card/view-card.component';
 import { SendEmailComponent } from './components/send-email/send-email.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SocialMediaComponent } from './components/social-media/social-media.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     VisionComponent,
     ViewCardComponent,
     SendEmailComponent,
+    SocialMediaComponent,
   ],
   imports: [
     BrowserModule,
