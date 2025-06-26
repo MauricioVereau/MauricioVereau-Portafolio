@@ -45,9 +45,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.currentIndex = (this.currentIndex - 1 + this.totalComponents) % this.totalComponents;
   }
 
-
-
-
+  // Variables para el swipe
   touchStartX = 0;
   touchStartY = 0;
   swipeDeltaX = 0;

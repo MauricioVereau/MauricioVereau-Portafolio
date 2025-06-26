@@ -13,6 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { VisionComponent } from './pages/vision/vision.component';
 import { ViewCardComponent } from './components/view-card/view-card.component';
+import { SendEmailComponent } from './components/send-email/send-email.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,13 +26,15 @@ import { ViewCardComponent } from './components/view-card/view-card.component';
     ExperienceComponent,
     VisionComponent,
     ViewCardComponent,
+    SendEmailComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

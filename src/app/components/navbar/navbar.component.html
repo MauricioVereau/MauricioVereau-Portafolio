@@ -3,27 +3,21 @@
   <div
     class="fixed top-4 right-4 z-50 flex items-center gap-2 sm:gap-3 bg-white/10 dark:bg-gray-900/10 backdrop-blur-md px-2 py-1.5 sm:px-3 sm:py-2 rounded-full shadow-lg border border-gray-200 dark:border-gray-700 text-xs sm:text-sm">
 
-      <!-- Botón EN -->
-      <button
-        (click)="changeLanguage('en')"
-        [class.bg-indigo-600]="translate.getCurrentLang() === 'en'"
-        [class.text-white]="translate.getCurrentLang() === 'en'"
-        class="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full font-bold transition-colors text-[0.7rem] sm:text-xs
+    <!-- Botón EN -->
+    <button (click)="changeLanguage('en')" [class.bg-indigo-600]="translate.getCurrentLang() === 'en'"
+      [class.text-white]="translate.getCurrentLang() === 'en'" class="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full font-bold transition-colors text-[0.7rem] sm:text-xs
               hover:bg-indigo-500
               text-black dark:text-white">
-        <strong>EN</strong>
-      </button>
+      <strong>EN</strong>
+    </button>
 
-      <!-- Botón ES -->
-      <button
-        (click)="changeLanguage('es')"
-        [class.bg-indigo-600]="translate.getCurrentLang() === 'es'"
-        [class.text-white]="translate.getCurrentLang() === 'es'"
-        class="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full font-bold transition-colors text-[0.7rem] sm:text-xs
+    <!-- Botón ES -->
+    <button (click)="changeLanguage('es')" [class.bg-indigo-600]="translate.getCurrentLang() === 'es'"
+      [class.text-white]="translate.getCurrentLang() === 'es'" class="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full font-bold transition-colors text-[0.7rem] sm:text-xs
               hover:bg-indigo-500
               text-black dark:text-white">
-        <strong>ES</strong>
-      </button>
+      <strong>ES</strong>
+    </button>
 
 
     <!-- Separador vertical -->
@@ -111,42 +105,8 @@
     class="fixed z-50 inset-0 flex items-center justify-center bg-black bg-opacity-50 transition-opacity p-4"
     (click)="cerrarModal()" (keydown.esc)="cerrarModal()" tabindex="0">
 
-    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-lg w-full sm:max-w-xl md:max-w-2xl lg:max-w-3xl
-              h-auto max-h-[90vh] overflow-y-auto transform transition-all scale-100 opacity-100"
-      (click)="$event.stopPropagation()">
 
-
-      <h2 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-white text-center mb-4">
-        Enviar Mensaje
-      </h2>
-
-
-      <form class="flex flex-col gap-4">
-        <input [(ngModel)]="nombre" name="nombre" placeholder="Nombre"
-          class="w-full p-3 border rounded dark:bg-gray-700 dark:text-white focus:ring-2 focus:ring-blue-500 text-lg"
-          required />
-
-        <input [(ngModel)]="email" name="email" type="email" placeholder="Correo"
-          class="w-full p-3 border rounded dark:bg-gray-700 dark:text-white focus:ring-2 focus:ring-blue-500 text-lg"
-          required />
-
-        <input [(ngModel)]="telefono" name="telefono" type="tel" placeholder="Teléfono"
-          class="w-full p-3 border rounded dark:bg-gray-700 dark:text-white focus:ring-2 focus:ring-blue-500 text-lg"
-          required />
-
-        <textarea [(ngModel)]="contenido" name="contenido" rows="4" placeholder="Mensaje"
-          class="w-full p-3 border rounded dark:bg-gray-700 dark:text-white focus:ring-2 focus:ring-blue-500 text-lg resize-none"
-          required></textarea>
-
-        <div class="flex flex-col sm:flex-row justify-end mt-4 gap-3">
-          <button type="button" (click)="cerrarModal()"
-            class="px-5 py-3 bg-gray-300 dark:bg-gray-600 rounded text-lg w-full sm:w-auto">Cancelar</button>
-          <button type="submit"
-            class="px-5 py-3 bg-blue-500 text-white rounded text-lg w-full sm:w-auto">Enviar</button>
-        </div>
-      </form>
-
-    </div>
+    <app-send-email *ngIf="modalAbierto" (cerrar)="cerrarModal()" class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-lg w-full sm:max-w-xl md:max-w-2xl lg:max-w-3xl h-auto max-h-[90vh] overflow-y-auto transform transition-all scale-100 opacity-100"></app-send-email>
   </div>
 
 </div>

@@ -11,11 +11,6 @@ export class NavbarComponent implements OnInit {
 
   modalAbierto = false; // Estado del modal
 
-  nombre = '';
-  email = '';
-  telefono = '';
-  contenido = '';
-
   texts: string[] = [];
   displayedText = "";
   textIndex = 0;
