@@ -1,6 +1,8 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { TranslateService } from '../../services/translate.service';
 import { StickyService } from '../../services/sticky.service';
+import { faFileDownload, faInbox, faLinkSlash } from '@fortawesome/free-solid-svg-icons';
+import { faLinkedin, faMedapps } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-navbar',
@@ -8,6 +10,10 @@ import { StickyService } from '../../services/sticky.service';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent implements OnInit {
+
+  iconMsj = faInbox;
+  iconRed = faLinkSlash;
+  iconDownload = faFileDownload;
 
   modalAbierto = false; // Estado del modal
 

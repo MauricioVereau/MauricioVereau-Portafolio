@@ -1,33 +1,40 @@
-<div (click)="$event.stopPropagation()">
+<div (click)="$event.stopPropagation()" class="p-4 sm:p-6 ">
 
   <h2 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-white text-center mb-4">
     Enviar Mensaje
   </h2>
 
-
   <form [formGroup]="contactoForm" (ngSubmit)="enviarFormulario()" class="flex flex-col gap-4">
-    <div class="mb-4">
-      <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+    <div class="mb-2">
+      <label class="block text-sm font-medium text-gray-900 dark:text-white">
+        {{ translate.getTranslation('form.nombre') }}
+      </label>
       <input formControlName="nombre" name="nombre" placeholder="Nombre"
         class="p-3 dark:bg-gray-700 dark:text-white mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
         required />
     </div>
 
-    <div class="mb-4">
-      <label for="name" class="block text-sm font-medium text-gray-700">E-mail</label>
+    <div class="mb-2">
+      <label class="block text-sm font-medium text-gray-900 dark:text-white">
+        {{ translate.getTranslation('form.email') }}
+      </label>
       <input formControlName="email" name="email" type="email" placeholder="Correo"
         class="p-3 dark:bg-gray-700 dark:text-white mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
         required />
     </div>
 
-    <div class="mb-4">
-      <label for="name" class="block text-sm font-medium text-gray-700">Teléfono</label>
+    <div class="mb-2">
+      <label class="block text-sm font-medium text-gray-900 dark:text-white">
+        {{ translate.getTranslation('form.telefono') }}
+      </label>
       <input formControlName="telefono" name="telefono" type="tel" placeholder="Teléfono"
         class="p-3 dark:bg-gray-700 dark:text-white mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
         required />
     </div>
-    <div class="mb-4">
-      <label for="name" class="block text-sm font-medium text-gray-700">Mensaje</label>
+    <div class="mb-2">
+      <label class="block text-sm font-medium text-gray-900 dark:text-white">
+        {{ translate.getTranslation('form.mensaje') }}
+      </label>
       <textarea formControlName="mensaje" name="contenido" rows="4" placeholder="Mensaje"
         class="p-3 dark:bg-gray-700 dark:text-white mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm resize-none"
         required></textarea>
@@ -42,9 +49,8 @@
       </div>
     </div>
 
-    <div class="flex flex-col sm:flex-row justify-end mt-4 gap-3">
-      <button type="button" (click)="cerrarModal()"
-        class="px-5 py-3 bg-gray-300 dark:bg-gray-600 rounded text-lg w-full sm:w-auto">Cancelar</button>
+    <div class="flex flex-row justify-end mt-4 gap-3">
+      <button type="button" (click)="cerrarModal()" class="px-5 py-3 bg-gray-300 dark:bg-gray-600 rounded text-lg w-full sm:w-auto">Cancelar</button>
       <button type="submit" [disabled]="isSubmitting || isSubmitted"
         class="px-5 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded text-lg w-full sm:w-auto font-bold transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center">
         <ng-container *ngIf="!isSubmitting && !isSubmitted">

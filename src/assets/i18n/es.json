@@ -1,4 +1,15 @@
 {
+  "navbar": {
+    "mensaje": "Mensaje",
+    "contacto": "Contacto",
+    "descargar": "Descargar CV"
+  },
+  "form": {
+    "nombre": "Nombre",
+    "email": "Correo electrónico",
+    "telefono": "Teléfono",
+    "mensaje": "Mensaje"
+  },
   "header": {
     "welcomeMessages": [
       "Bienvenid@ a mi mundo digital",

@@ -2,6 +2,7 @@ import { AfterViewInit, Component, EventEmitter, OnInit, Output } from '@angular
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SendEmailService } from '../../services/send-email.service';
 import { faCheckCircle, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import { TranslateService } from '../../services/translate.service';
 
 declare global {
   interface Window {
@@ -28,7 +29,7 @@ export class SendEmailComponent implements OnInit, AfterViewInit {
   isSubmitted = false;
   turnstileError = false;
 
-  constructor(private fb: FormBuilder, private emailService: SendEmailService) { }
+  constructor(private fb: FormBuilder, private emailService: SendEmailService, public translate: TranslateService) { }
 
   ngOnInit(): void {
     this.contactoForm = this.fb.group({
@@ -66,14 +67,20 @@ export class SendEmailComponent implements OnInit, AfterViewInit {
     const container = document.getElementById('turnstile-container');
     if (!container) return;
 
-    // Limpiar contenedor solo si ya hay un widget
+    container.innerHTML = '';
+
     if (this.turnstileWidgetId && window.turnstile) {
       window.turnstile.remove(this.turnstileWidgetId);
     }
 
+    // Obtén el modo actual desde localStorage o desde un servicio/global
+    const isDark = JSON.parse(localStorage.getItem('darkMode') || 'false');
+
     try {
       this.turnstileWidgetId = window.turnstile.render(container, {
         sitekey: '0x4AAAAAABiXIlAgVL2xQnjE',
+        theme: isDark ? 'dark' : 'light',
+        size: 'normal',
         callback: (token: string) => {
           this.contactoForm.get('turnstileToken')?.setValue(token);
           this.turnstileToken = token;

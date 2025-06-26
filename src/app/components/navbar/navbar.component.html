@@ -63,8 +63,8 @@
     <!-- Imagen de perfil -->
     <div class="absolute -bottom-12 left-1/2 transform -translate-x-1/2
             md:left-[5%] md:translate-x-0">
-      <img src="assets/img/perfil-micho.jpg" class="w-24 h-24 md:w-32 md:h-32 rounded-full border-4 border-white shadow-md"
-        alt="Profile">
+      <img src="assets/img/perfil-micho.jpg"
+        class="w-24 h-24 md:w-32 md:h-32 rounded-full border-4 border-white shadow-md" alt="Profile">
     </div>
 
   </div>
@@ -82,18 +82,18 @@
         [ngClass]="{'ml-2 justify-start': isSticky, 'justify-center': !isSticky}">
         <button (click)="abrirModal()"
           class="flex items-center space-x-2 px-4 py-2 bg-white/10 dark:bg-gray-900/10 backdrop-blur-md text-gray-900 dark:text-gray-200 rounded-lg shadow hover:bg-white/20 dark:hover:bg-gray-800/20">
-          <span>📩</span>
-          <span class="hidden lg:inline">Mensaje</span>
+          <fa-icon [icon]="iconMsj"></fa-icon>
+          <span class="hidden lg:inline">{{ translate.getTranslation('navbar.mensaje') }}</span>
         </button>
         <button
           class="flex items-center space-x-2 px-4 py-2 bg-white/10 dark:bg-gray-900/10 backdrop-blur-md text-gray-900 dark:text-gray-200 rounded-lg shadow hover:bg-white/20 dark:hover:bg-gray-800/20">
-          <span>📞</span>
-          <span class="hidden lg:inline">Contacto</span>
+          <fa-icon [icon]="iconRed"></fa-icon>
+          <span class="hidden lg:inline">{{ translate.getTranslation('navbar.contacto') }}</span>
         </button>
         <button
           class="flex items-center space-x-2 px-4 py-2 bg-white/10 dark:bg-gray-900/10 backdrop-blur-md text-gray-900 dark:text-gray-200 rounded-lg shadow hover:bg-white/20 dark:hover:bg-gray-800/20">
-          <span>📍</span>
-          <span class="hidden lg:inline">Perú</span>
+          <fa-icon [icon]="iconDownload"></fa-icon>
+          <span class="hidden lg:inline">{{ translate.getTranslation('navbar.descargar') }}</span>
         </button>
       </div>
     </div>
@@ -105,7 +105,13 @@
     class="fixed z-50 inset-0 flex items-center justify-center bg-black bg-opacity-50 transition-opacity p-4"
     (click)="cerrarModal()" (keydown.esc)="cerrarModal()" tabindex="0">
 
-    <app-send-email *ngIf="modalAbierto" (cerrar)="cerrarModal()" class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-lg w-full sm:max-w-xl md:max-w-2xl lg:max-w-3xl h-auto max-h-[90vh] overflow-y-auto transform transition-all scale-100 opacity-100"></app-send-email>
+    <div class="relative w-full h-full flex items-center justify-center">
+      <div class="border border-gray-200 dark:border-gray-700 bg-white/10 dark:bg-gray-900/10 backdrop-blur-md rounded-xl shadow-xl overflow-hidden flex flex-col
+      w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl
+      h-auto max-h-[90vh] sm:max-h-[95vh]
+      transform transition-all duration-300 ease-in-out">
+        <app-send-email *ngIf="modalAbierto" (cerrar)="cerrarModal()"></app-send-email>
+      </div>
+    </div>
   </div>
-
 </div>

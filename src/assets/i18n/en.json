@@ -1,4 +1,15 @@
 {
+  "navbar": {
+    "mensaje": "Message",
+    "contacto": "Contact",
+    "descargar": "Download CV"
+  },
+  "form": {
+    "nombre": "Name",
+    "email": "Email",
+    "telefono": "Phone",
+    "mensaje": "Message"
+  },
   "header": {
     "welcomeMessages": [
       "Welcome to my digital world",
@@ -19,7 +30,7 @@
   },
   "experience": {
     "tec": "Technician",
-    "button":"Download CV",
+    "button": "Download CV",
     "title": "Professional Profile",
     "educationTit": "Professional Education",
     "experienceTit": "Work experience",

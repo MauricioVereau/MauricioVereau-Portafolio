@@ -22,16 +22,11 @@ export class VisionComponent {
     this.translate.currentLang$.subscribe(() => this.loadWorkflowTexts());
   }
 
-
   public changeLanguage(lang: string) {
     this.translate.setLanguage(lang);
   }
 
-  /**
-   * Carga los textos de workflow desde las traducciones.
-   */
   loadWorkflowTexts() {
     this.workflowTexts = this.translate.getTranslation('workflow') || {};
-    console.log('Textos de Workflow:', this.workflowTexts); // Depuración
   }
 }
