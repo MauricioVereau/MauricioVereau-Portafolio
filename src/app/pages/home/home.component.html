@@ -2,7 +2,7 @@
 
   <!-- Botón izquierdo (solo aparece cuando isSticky es true) -->
   <button *ngIf="isSticky" (click)="prevComponent()"
-    class="hidden sm:flex fixed left-4 top-1/2 z-50 -translate-y-1/2 p-4 rounded-full bg-white/10 dark:bg-gray-900/10 backdrop-blur-md transition duration-300 hover:bg-gray-800/60 dark:hover:bg-gray-300/40 md:left-8">
+    class="hidden sm:flex fixed left-4 top-1/2 z-30 -translate-y-1/2 p-4 rounded-full bg-white/10 dark:bg-gray-900/10 backdrop-blur-md transition duration-300 hover:bg-gray-800/60 dark:hover:bg-gray-300/40 md:left-8">
     <svg class="size-6 text-gray-600 dark:text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
       stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
@@ -11,7 +11,7 @@
 
   <!-- Botón derecho (solo aparece cuando isSticky es true) -->
   <button *ngIf="isSticky" (click)="nextComponent()"
-    class="hidden sm:flex fixed right-4 top-1/2 z-50 -translate-y-1/2 p-4 rounded-full bg-white/10 dark:bg-gray-900/10 backdrop-blur-md transition duration-300 hover:bg-gray-800/60 dark:hover:bg-gray-300/40 md:right-8">
+    class="hidden sm:flex fixed right-4 top-1/2 z-30 -translate-y-1/2 p-4 rounded-full bg-white/10 dark:bg-gray-900/10 backdrop-blur-md transition duration-300 hover:bg-gray-800/60 dark:hover:bg-gray-300/40 md:right-8">
     <svg class="size-6 text-gray-600 dark:text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
       stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -22,7 +22,7 @@
   <div *ngIf="isSticky" [ngClass]="{
     'bottom-8': !isFooterVisible,
     'bottom-24': isFooterVisible
-  }" class="fixed left-1/2 transform -translate-x-1/2 flex space-x-4 z-50 transition-all duration-300">
+  }" class="fixed left-1/2 transform -translate-x-1/2 flex space-x-4 z-30 transition-all duration-300">
     <!-- Pelotita 1 -->
     <div class="w-4 h-4 rounded-full transition-all duration-300 transform hover:scale-110 cursor-pointer" [ngClass]="{
       'bg-blue-500 shadow-lg': currentIndex === 0,
@@ -42,8 +42,6 @@
     }"></div>
   </div>
 
-
-
   <!-- Contenedor de contenido -->
   <div class="w-full h-full overflow-hidden" (touchstart)="onTouchStart($event)" (touchmove)="onTouchMove($event)"
     (touchend)="onTouchEnd()">
@@ -56,7 +54,5 @@
       </ng-container>
     </div>
   </div>
-
-
 
 </div>

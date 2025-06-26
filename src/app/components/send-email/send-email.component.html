@@ -20,7 +20,6 @@
         required />
     </div>
 
-
     <div class="mb-4">
       <label for="name" class="block text-sm font-medium text-gray-700">Teléfono</label>
       <input formControlName="telefono" name="telefono" type="tel" placeholder="Teléfono"
@@ -35,10 +34,13 @@
     </div>
 
     <div class="w-full flex justify-center">
-      <div id="turnstile-container" class="cf-turnstile" data-sitekey="0x4AAAAAABiXIlAgVL2xQnjE"
-        data-callback="onTurnstileSuccess" data-size="flexible"></div>
+      <div id="turnstile-container" class="cf-turnstile" style="min-width: 120px; max-width: 300px; min-height: 65px;">
+        <!-- Mensaje de carga opcional -->
+        <div *ngIf="turnstileError" class="text-red-500 text-sm">
+          Error al cargar la verificación. Por favor recarga la página.
+        </div>
+      </div>
     </div>
-
 
     <div class="flex flex-col sm:flex-row justify-end mt-4 gap-3">
       <button type="button" (click)="cerrarModal()"

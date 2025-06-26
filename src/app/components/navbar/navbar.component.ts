@@ -39,10 +39,12 @@ export class NavbarComponent implements OnInit {
 
   abrirModal() {
     this.modalAbierto = true;
+    document.body.classList.add('overflow-hidden');
   }
 
   cerrarModal() {
     this.modalAbierto = false;
+    document.body.classList.remove('overflow-hidden');
   }
 
   /**

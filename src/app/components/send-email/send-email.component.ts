@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SendEmailService } from '../../services/send-email.service';
 import { faCheckCircle, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
@@ -8,68 +8,88 @@ declare global {
     turnstile: any;
   }
 }
+
 @Component({
   selector: 'app-send-email',
   templateUrl: './send-email.component.html',
   styleUrls: ['./send-email.component.css']
 })
-export class SendEmailComponent implements OnInit {
-
+export class SendEmailComponent implements OnInit, AfterViewInit {
   @Output() cerrar = new EventEmitter<void>();
 
   iconPlane = faPaperPlane;
   iconSuccess = faCheckCircle;
 
   contactoForm!: FormGroup;
-  isTurnstileValid: boolean = false;
   turnstileToken: string = '';
   turnstileWidgetId: any;
 
   isSubmitting = false;
   isSubmitted = false;
+  turnstileError = false;
 
   constructor(private fb: FormBuilder, private emailService: SendEmailService) { }
 
-
   ngOnInit(): void {
-    this.initTurnstile();
     this.contactoForm = this.fb.group({
       nombre: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
       telefono: ['', Validators.required],
       mensaje: ['', Validators.required],
       turnstileToken: ['', Validators.required]
     });
   }
 
-  initTurnstile() {
-    const interval = 2 * 60 * 1000; // 2 minutos
-    const sitekey = '0x4AAAAAABiXIlAgVL2xQnjE';
-
-    const checkApi = setInterval(() => {
-      if (typeof window['turnstile'] !== 'undefined') {
-        clearInterval(checkApi);
-
-        this.turnstileWidgetId = window['turnstile'].render('#turnstile-container', {
-          sitekey,
-          callback: (token: string) => {
-            this.contactoForm.get('turnstileToken')?.setValue(token);
-            this.turnstileToken = token;
-          }
-        });
-
-        setInterval(() => {
-          window['turnstile'].reset(this.turnstileWidgetId);
-        }, interval);
-      }
-    }, 500);
+  ngAfterViewInit(): void {
+    this.initTurnstileWithRetry();
   }
 
+  private initTurnstileWithRetry(attempt: number = 0): void {
+    const MAX_ATTEMPTS = 3;
+    const RETRY_DELAY = 500;
+
+    if (attempt >= MAX_ATTEMPTS) {
+      console.warn('Turnstile no se pudo cargar después de varios intentos');
+      this.turnstileError = true;
+      return;
+    }
+
+    if (typeof window.turnstile === 'undefined') {
+      setTimeout(() => this.initTurnstileWithRetry(attempt + 1), RETRY_DELAY);
+      return;
+    }
+
+    this.renderTurnstile();
+  }
+
+  private renderTurnstile(): void {
+    const container = document.getElementById('turnstile-container');
+    if (!container) return;
+
+    // Limpiar contenedor solo si ya hay un widget
+    if (this.turnstileWidgetId && window.turnstile) {
+      window.turnstile.remove(this.turnstileWidgetId);
+    }
+
+    try {
+      this.turnstileWidgetId = window.turnstile.render(container, {
+        sitekey: '0x4AAAAAABiXIlAgVL2xQnjE',
+        callback: (token: string) => {
+          this.contactoForm.get('turnstileToken')?.setValue(token);
+          this.turnstileToken = token;
+          this.turnstileError = false;
+        },
+        'error-callback': () => {
+          this.turnstileError = true;
+        }
+      });
+    } catch (error) {
+      console.error('Error al renderizar Turnstile:', error);
+      this.turnstileError = true;
+    }
+  }
 
   enviarFormulario(): void {
-
-    console.log('Enviando formulario...', this.contactoForm.value);
-
     if (this.contactoForm.invalid || !this.turnstileToken) {
       this.contactoForm.markAllAsTouched();
       return;
@@ -78,38 +98,39 @@ export class SendEmailComponent implements OnInit {
     this.isSubmitting = true;
     this.isSubmitted = false;
 
-    const datos = {
-      nombre: this.contactoForm.get('nombre')?.value,
-      email: this.contactoForm.get('email')?.value,
-      telefono: this.contactoForm.get('telefono')?.value,
-      mensaje: this.contactoForm.get('mensaje')?.value,
-      turnstileToken: this.turnstileToken
-    };
+    const datos = this.contactoForm.value;
 
     this.emailService.enviarCorreo(datos).subscribe({
-      next: (res) => {
-        this.isSubmitting = false;
-        this.isSubmitted = true;
-
-        setTimeout(() => this.isSubmitted = false, 3000);
-        this.contactoForm.reset();
-        this.turnstileToken = '';
-        window['turnstile'].reset(this.turnstileWidgetId);
-        this.cerrar.emit(); // Cierra el modal si es necesario
+      next: () => {
+        this.handleSuccess();
       },
-      error: (err) => {
+      error: () => {
         this.isSubmitting = false;
-
-        if (err.status === 429) {
-
-          return;
-        }
-
       }
     });
   }
 
-  cerrarModal() {
+  private handleSuccess(): void {
+    this.isSubmitting = false;
+    this.isSubmitted = true;
+
+    setTimeout(() => {
+      this.resetForm();
+      this.cerrar.emit();
+    }, 2000);
+  }
+
+  private resetForm(): void {
+    this.contactoForm.reset();
+    this.turnstileToken = '';
+    this.turnstileError = false;
+
+    if (this.turnstileWidgetId && window.turnstile) {
+      window.turnstile.reset(this.turnstileWidgetId);
+    }
+  }
+
+  cerrarModal(): void {
     this.cerrar.emit();
   }
 }
