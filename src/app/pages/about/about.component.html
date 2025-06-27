@@ -1,35 +1,27 @@
-<div class="py-10 sm:py-5">
+<div class="overflow-hidden bg-white dark:bg-gray-900 py-24 sm:py-32">
   <div class="mx-auto max-w-7xl px-6 lg:px-8">
-    <h3 class="text-xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-2xl text-center">
-      <fa-icon [icon]="iconTech"></fa-icon> {{ aboutData.title }}
-    </h3>
 
-    <div class="mx-auto mt-4 mb-6 relative">
-      <div class="absolute inset-0 bg-black/40 dark:bg-black/60 rounded-xl -z-10"></div>
-      <div
-        class="p-4 border border-gray-200 dark:border-gray-700 bg-white/10 dark:bg-gray-900/10 backdrop-blur-md rounded-xl shadow-xl overflow-hidden relative">
-        <app-tech-icons [categories]="techCategories"></app-tech-icons>
+    <!-- Tecnologías -->
+    <div class="mx-auto max-w-4xl mb-16">
+      <h3 class="text-xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-2xl text-center mb-8">
+        <fa-icon [icon]="iconTech"></fa-icon> {{ aboutData.title }}
+      </h3>
+      <div class="relative">
+        <div class="p-4 border border-gray-200 dark:border-gray-700 bg-slate-700/5 dark:bg-gray-900/10 backdrop-blur-md rounded-xl shadow-xl overflow-hidden">
+          <app-tech-icons [categories]="techCategories"></app-tech-icons>
+        </div>
       </div>
     </div>
 
-
-    <h3 class="mt-10 mb-6 text-lg font-bold tracking-tight text-gray-900 dark:text-white sm:text-xl text-center">
-      <fa-icon [icon]="iconProject"></fa-icon> {{ projectsData.title }}
-    </h3>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      <ng-container *ngFor="let project of projectsData.projects">
-        <div
-          class="border border-gray-200 dark:border-gray-700 bg-white/10 dark:bg-gray-900/10 backdrop-blur-md rounded-xl shadow-xl overflow-hidden p-6 flex flex-col items-start hover:scale-105 transition-transform duration-300">
-          <img *ngIf="project.image" [src]="project.image" [alt]="project.title"
-            class="w-full h-40 object-cover rounded mb-4">
-          <h4 class="text-base font-semibold text-gray-900 dark:text-white mb-2">{{ project.title }}</h4>
-          <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">{{ project.description }}</p>
-          <a *ngIf="project.link" [href]="project.link" target="_blank"
-            class="mt-auto inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
-            Ver proyecto
-          </a>
-        </div>
-      </ng-container>
+    <!-- Proyectos -->
+    <div class="mx-auto max-w-7xl">
+      <h3 class="mt-10 mb-10 text-lg font-bold tracking-tight text-gray-900 dark:text-white sm:text-xl text-center">
+        <fa-icon [icon]="iconProject"></fa-icon> Proyectos
+      </h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16 sm:gap-y-20 w-full">
+        <app-view-project *ngFor="let project of projects" [project]="project"></app-view-project>
+      </div>
     </div>
+
   </div>
 </div>

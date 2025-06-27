@@ -1,1 +1,36 @@
-<p>download-cv works!</p>
+<div class="p-4 sm:p-6 max-w-full">
+  <div class="relative flex flex-col items-center gap-4">
+    <!-- Botón cerrar -->
+    <button (click)="cerrar.emit()" class="absolute top-1 right-2 w-9 h-9 flex items-center justify-center rounded-full
+           bg-gray-100 dark:bg-gray-700
+           hover:bg-gray-200 dark:hover:bg-gray-600
+           text-black dark:text-white
+           shadow-sm hover:shadow-md
+           transition-all duration-200 ease-in-out focus:outline-none">
+      <fa-icon [icon]="iconCerrar" class="text-base"></fa-icon>
+    </button>
+
+    <!-- Selector de idioma -->
+    <div
+      class="flex items-center gap-2 bg-white/10 dark:bg-gray-900/10 backdrop-blur-md px-3 py-1.5 rounded-full shadow-md border border-gray-300 dark:border-gray-700 text-sm">
+      <button (click)="changeLanguage('en')" [class.bg-blue-600]="translate.getCurrentLang() === 'en'"
+        [class.text-white]="translate.getCurrentLang() === 'en'"
+        class="px-3 py-1 rounded-full font-semibold transition-colors hover:bg-blue-500 text-black dark:text-white text-[0.75rem]">
+        EN
+      </button>
+      <button (click)="changeLanguage('es')" [class.bg-blue-600]="translate.getCurrentLang() === 'es'"
+        [class.text-white]="translate.getCurrentLang() === 'es'"
+        class="px-3 py-1 rounded-full font-semibold transition-colors hover:bg-blue-500 text-black dark:text-white text-[0.75rem]">
+        ES
+      </button>
+    </div>
+
+    <!-- Contenedor del iframe -->
+    <div class="w-full max-w-4xl">
+      <iframe [src]="cvUrl | safeUrl" width="100%" height="600"
+        class="rounded-xl border border-gray-300 dark:border-gray-700 shadow-lg bg-white/10 dark:bg-gray-900/10 backdrop-blur-md"
+        frameborder="0">
+      </iframe>
+    </div>
+  </div>
+</div>

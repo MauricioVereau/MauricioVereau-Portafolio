@@ -1,7 +1,6 @@
 <div class="flex flex-col justify-between lg:min-h-screen">
   <!-- Contenedor principal (se adapta a móvil/desktop) -->
-  <div
-    class="fixed top-4 right-4 z-50 flex items-center gap-2 sm:gap-3 bg-white/10 dark:bg-gray-900/10 backdrop-blur-md px-2 py-1.5 sm:px-3 sm:py-2 rounded-full shadow-lg border border-gray-200 dark:border-gray-700 text-xs sm:text-sm">
+  <div class="fixed top-4 right-4 z-50 flex items-center gap-2 sm:gap-3 bg-white/10 dark:bg-gray-900/10 backdrop-blur-md px-2 py-1.5 sm:px-3 sm:py-2 rounded-full shadow-lg border border-gray-200 dark:border-gray-700 text-xs sm:text-sm">
 
     <!-- Botón EN -->
     <button (click)="changeLanguage('en')" [class.bg-blue-600]="translate.getCurrentLang() === 'en'"
@@ -35,8 +34,7 @@
           [class.opacity-100]="!isDarkMode" [class.opacity-0]="!isDarkMode">☀️</span>
 
         <!-- Circulo deslizante -->
-        <div class="absolute w-3 h-3 sm:w-4 sm:h-4 bg-white rounded-full shadow-md transition-transform duration-300 z-10
-  peer-checked:translate-x-5 sm:peer-checked:translate-x-6" [class.translate-x-6]="isDarkMode"></div>
+        <div class="absolute w-3 h-3 sm:w-4 sm:h-4 bg-white rounded-full shadow-md transition-transform duration-300 z-10 peer-checked:translate-x-5 sm:peer-checked:translate-x-6" [class.translate-x-6]="isDarkMode"></div>
 
         <!-- Icono luna (dark mode) -->
         <span

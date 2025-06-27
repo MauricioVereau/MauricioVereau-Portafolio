@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { faNetworkWired, faTools} from '@fortawesome/free-solid-svg-icons';
+import { faNetworkWired, faTools } from '@fortawesome/free-solid-svg-icons';
 import { TechCategory } from '../../components/tech-icons/tech-icons.component';
 import { TranslateService } from '../../services/translate.service';
 
@@ -13,7 +13,7 @@ export class AboutComponent {
   aboutData: any = {};
 
   iconTech = faTools;
-  iconProject =faNetworkWired;
+  iconProject = faNetworkWired;
 
   techCategories: TechCategory[] = [
     {
@@ -71,18 +71,58 @@ export class AboutComponent {
   ];
 
 
-  projectsData = {
-    title: 'Mis Proyectos',
-    projects: [
-      {
-        title: 'Proyecto 1',
-        description: 'Descripción breve del proyecto.',
-        image: 'assets/img/proyecto1.jpg',
-        link: 'https://tuproyecto.com'
-      },
-      // ...más proyectos
-    ]
-  };
+  projects = [
+    {
+      "id": 1,
+      "title": "Portafolio Personal",
+      "image": "assets/images/portfolio/portfolio.webp",
+      "technologies": [
+        "Angular v17",
+        "TypeScript",
+        "RxJS",
+        "Tailwind CSS"
+      ],
+      "demo": "link",
+      "repo": "link repo"
+    },
+    {
+      "id": 2,
+      "title": "Portafolio Personal",
+      "image": "assets/images/portfolio/portfolio.webp",
+      "technologies": [
+        "Angular v17",
+        "TypeScript",
+        "RxJS",
+        "Tailwind CSS"
+      ],
+      "demo": "link",
+      "repo": "link 2"
+    },{
+      "id": 3,
+      "title": "Portafolio Personal",
+      "image": "assets/images/portfolio/portfolio.webp",
+      "technologies": [
+        "Angular v17",
+        "TypeScript",
+        "RxJS",
+        "Tailwind CSS"
+      ],
+      "demo": "link",
+      "repo": "link 3"
+    },{
+      "id": 4,
+      "title": "Portafolio Personal",
+      "image": "assets/images/portfolio/portfolio.webp",
+      "technologies": [
+        "Angular v17",
+        "TypeScript",
+        "RxJS",
+        "Tailwind CSS"
+      ],
+      "demo": "link",
+      "repo": "link 4"
+    }
+  ]
 
   constructor(public translate: TranslateService) { }
 

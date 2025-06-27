@@ -18,6 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SocialMediaComponent } from './components/social-media/social-media.component';
 import { DownloadCvComponent } from './components/download-cv/download-cv.component';
 import { TechIconsComponent } from './components/tech-icons/tech-icons.component';
+import { SafeUrlPipe } from './pipes/safe-url.pipe';
+import { ViewProjectComponent } from './components/view-project/view-project.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { TechIconsComponent } from './components/tech-icons/tech-icons.component
     SocialMediaComponent,
     DownloadCvComponent,
     TechIconsComponent,
+    SafeUrlPipe,
+    ViewProjectComponent
   ],
   imports: [
     BrowserModule,
