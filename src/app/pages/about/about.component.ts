@@ -74,53 +74,46 @@ export class AboutComponent {
   projects = [
     {
       "id": 1,
-      "title": "Portafolio Personal",
-      "image": "assets/images/portfolio/portfolio.webp",
+      "title": "Blog Coffee",
+      "image": "https://api.microlink.io/?url=https://blogcafe-mauriciovereau.netlify.app/&screenshot=true&meta=false&embed=screenshot.url",
       "technologies": [
-        "Angular v17",
-        "TypeScript",
-        "RxJS",
-        "Tailwind CSS"
+        "Html5",
+        "Css3",
+        "JS",
       ],
-      "demo": "link",
-      "repo": "link repo"
+      "demo": "https://blogcafe-mauriciovereau.netlify.app/",
+      "repo": ""
     },
     {
       "id": 2,
-      "title": "Portafolio Personal",
-      "image": "assets/images/portfolio/portfolio.webp",
+      "title": "Web Bussiness",
+      "image": "https://api.microlink.io/?url=https://bienesraices-mauriciovereau.netlify.app/&screenshot=true&meta=false&embed=screenshot.url",
       "technologies": [
-        "Angular v17",
-        "TypeScript",
-        "RxJS",
-        "Tailwind CSS"
+        "Html5",
+        "Css3",
+        "JS",
       ],
-      "demo": "link",
-      "repo": "link 2"
+      "demo": "https://bienesraices-mauriciovereau.netlify.app/",
+      "repo": ""
     },{
       "id": 3,
-      "title": "Portafolio Personal",
-      "image": "assets/images/portfolio/portfolio.webp",
+      "title": "Angular Pipes",
+      "image": "https://api.microlink.io/?url=https://mauriciovereau.github.io/PipesAngular/&screenshot=true&meta=false&embed=screenshot.url",
       "technologies": [
         "Angular v17",
-        "TypeScript",
-        "RxJS",
-        "Tailwind CSS"
       ],
-      "demo": "link",
-      "repo": "link 3"
+      "demo": "https://mauriciovereau.github.io/PipesAngular/",
+      "repo": "https://github.com/MauricioVereau/PipesAngular"
     },{
       "id": 4,
-      "title": "Portafolio Personal",
-      "image": "assets/images/portfolio/portfolio.webp",
+      "title": "Api Countries",
+      "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
       "technologies": [
         "Angular v17",
-        "TypeScript",
-        "RxJS",
-        "Tailwind CSS"
+        "Api"
       ],
-      "demo": "link",
-      "repo": "link 4"
+      "demo": "https://mauriciovereau.github.io/AppPaises/",
+      "repo": "https://github.com/MauricioVereau/AppPaises"
     }
   ]
 
