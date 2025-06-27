@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, EventEmitter, OnInit, Output, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SendEmailService } from '../../services/send-email.service';
-import { faCheckCircle, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import { faCheckCircle, faClose, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import { TranslateService } from '../../services/translate.service';
 
 declare global {
@@ -21,6 +21,7 @@ export class SendEmailComponent implements OnInit, AfterViewInit, OnChanges {
 
   iconPlane = faPaperPlane;
   iconSuccess = faCheckCircle;
+  iconCerrar = faClose;
 
   contactoForm!: FormGroup;
   turnstileToken: string = '';

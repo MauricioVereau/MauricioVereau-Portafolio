@@ -1,18 +1,24 @@
-<div (click)="$event.stopPropagation()" class="p-4 sm:p-6 ">
-  <div class="relative p-6 flex flex-col items-center">
-    <!-- Botón X flotante -->
-    <button (click)="cerrar.emit()" class="absolute top-2 right-2 w-9 h-9 flex items-center justify-center rounded-full
-         bg-gray-100 dark:bg-gray-700
-         hover:bg-gray-200 dark:hover:bg-gray-600
-         text-black dark:text-white
-         shadow-sm hover:shadow-md
-         transition-all duration-200 ease-in-out focus:outline-none">
-      <fa-icon [icon]="iconCerrar" class="text-base"></fa-icon>
-    </button>
+<div class="p-4 sm:p-6 max-w-full">
+  <div class="relative flex flex-col gap-4">
+    <!-- Contenedor para título y botón cerrar -->
+    <div class="relative flex items-center justify-center mb-2">
+      <!-- Título -->
+      <h2 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-white text-center w-full">
+        {{ translate.getTranslation('social') }}
+      </h2>
 
-    <h2 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-white text-center mb-4">
-      Redes Sociales
-    </h2>
+      <!-- Botón cerrar -->
+      <button (click)="cerrar.emit()" class="absolute right-0 top-0 w-9 h-9 flex items-center justify-center rounded-full
+           bg-gray-100 dark:bg-gray-700
+           hover:bg-gray-200 dark:hover:bg-gray-600
+           text-black dark:text-white
+           shadow-sm hover:shadow-md
+           transition-all duration-200 ease-in-out focus:outline-none">
+        <fa-icon [icon]="iconCerrar" class="text-base"></fa-icon>
+      </button>
+    </div>
+
+    <!-- Redes sociales -->
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
       <a href="https://github.com/MauricioVereau" target="_blank" class="flex items-center gap-3 px-4 py-2 rounded-lg transition-colors font-semibold shadow
          bg-white/20 dark:bg-gray-900/20
@@ -54,19 +60,9 @@
          text-black dark:text-white
          hover:text-white dark:hover:text-white
          hover:bg-[linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)]">
-
         <fa-icon [icon]="iconIg" class="transition-colors duration-300 group-hover:text-white"></fa-icon>
         <span class="transition-colors duration-300 group-hover:text-white">Instagram</span>
       </a>
-
-
-      <!-- <a href="https://instagram.com/micho.dev" target="_blank" class="flex items-center gap-3 px-4 py-2 rounded-lg transition-colors font-semibold shadow
-         bg-white/20 dark:bg-gray-900/20
-         hover:bg-fuchsia-500 hover:text-orange-400
-         dark:hover:bg-fuchsia-500 dark:hover:text-orange-400 dark:text-white">
-        <fa-icon [icon]="iconIg"></fa-icon>
-        <span>Instagram</span>
-      </a> -->
     </div>
   </div>
 </div>

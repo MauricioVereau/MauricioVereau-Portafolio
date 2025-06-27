@@ -1,10 +1,12 @@
 {
+  "social": "Redes Sociales",
   "navbar": {
     "mensaje": "Mensaje",
     "contacto": "Redes Sociales",
     "descargar": "Descargar CV"
   },
   "form": {
+    "title": "Enviar Correo",
     "nombre": "Nombre",
     "email": "Correo electrónico",
     "telefono": "Teléfono",
@@ -103,6 +105,7 @@
     ]
   },
   "about": {
-    "title": "Tecnologías"
+    "title": "Tecnologías",
+    "title2": "Proyectos"
   }
 }
