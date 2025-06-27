@@ -1,0 +1,52 @@
+.tech-glow {
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.tech-glow:hover {
+  transform: scale(1.1);
+}
+
+/* Lenguajes de programación */
+.glow-javascript { filter: drop-shadow(0 0 8px #F7DF1E); } /* Amarillo para JavaScript */
+.glow-csharp { filter: drop-shadow(0 0 8px #68217A); } /* Púrpura para C# */
+.glow-java { filter: drop-shadow(0 0 8px #007396); } /* Azul para Java */
+.glow-python { filter: drop-shadow(0 0 8px #306998); } /* Azul para Python */
+.glow-html5 { filter: drop-shadow(0 0 8px #E44D26); } /* Rojo para HTML5 */
+.glow-css3 { filter: drop-shadow(0 0 8px #1572B6); } /* Azul para CSS3 */
+.glow-typescript { filter: drop-shadow(0 0 8px #3178C6); } /* Azul para TypeScript */
+
+/* Frameworks y Librerías */
+.glow-angular { filter: drop-shadow(0 0 8px #DD1B16); } /* Rojo para Angular */
+.glow-spring { filter: drop-shadow(0 0 8px #7eca4c); } /* Verde para Spring */
+.glow-bootstrap { filter: drop-shadow(0 0 8px #563D7C); } /* Púrpura para Bootstrap */
+.glow-tailwind { filter: drop-shadow(0 0 8px #38BDF8); } /* Azul claro para Tailwind */
+.glow-swagger { filter: drop-shadow(0 0 8px #85B1BF); } /* Azul para Swagger */
+.glow-dotnetcore { filter: drop-shadow(0 0 8px #512BD4); } /* Violeta para .NET Core */
+
+/* Bases de Datos */
+.glow-mysql { filter: drop-shadow(0 0 8px #00758F); } /* Azul oscuro para MySQL */
+.glow-mongodb { filter: drop-shadow(0 0 8px #69a143); } /* Azul oscuro para mongodb */
+.glow-sqlserver { filter: drop-shadow(0 0 8px #CC2927); } /* Rojo para SQL Server */
+
+/* IDEs */
+.glow-pycharm { filter: drop-shadow(0 0 8px #A91B6B); } /* Rosa para PyCharm */
+.glow-vscode { filter: drop-shadow(0 0 8px #007ACC); } /* Azul para VS Code */
+.glow-visualstudio { filter: drop-shadow(0 0 8px #5C2D91); } /* Violeta para Visual Studio */
+.glow-eclipse {
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 6px rgba(255, 255, 255, 0.5)); /* Más pequeño */
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.glow-eclipse:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 10px rgba(255, 255, 255, 0.8)); /* Ajustado para hover */
+}
+
+
+/* Herramientas */
+.glow-git { filter: drop-shadow(0 0 8px #F05032); } /* Rojo para Git */
+.glow-maven { filter: drop-shadow(0 0 8px #C71B23); } /* Rojo para Maven */
+.glow-postman { filter: drop-shadow(0 0 8px #FF6C37); } /* Naranja para Postman */
+.glow-linux { filter: drop-shadow(0 0 8px #F7DF1E); } /* Verde para Linux */
+.glow-jira { filter: drop-shadow(0 0 8px #0052CC); } /* Azul para Jira */
+.glow-cloudflare { filter: drop-shadow(0 0 8px #F38020); } /* Naranja para Cloudflare */

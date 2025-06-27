@@ -16,6 +16,8 @@ import { ViewCardComponent } from './components/view-card/view-card.component';
 import { SendEmailComponent } from './components/send-email/send-email.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SocialMediaComponent } from './components/social-media/social-media.component';
+import { DownloadCvComponent } from './components/download-cv/download-cv.component';
+import { TechIconsComponent } from './components/tech-icons/tech-icons.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { SocialMediaComponent } from './components/social-media/social-media.com
     ViewCardComponent,
     SendEmailComponent,
     SocialMediaComponent,
+    DownloadCvComponent,
+    TechIconsComponent,
   ],
   imports: [
     BrowserModule,

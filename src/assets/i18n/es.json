@@ -101,5 +101,8 @@
         "view": "https://api.microlink.io/?url=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F1fkU-uXqxfVtQl_1nwTY9zV7IuC4BhmZ1%2Fview&screenshot=true&embed=screenshot.url"
       }
     ]
+  },
+  "about": {
+    "title": "Tecnologías"
   }
 }

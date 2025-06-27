@@ -16,7 +16,7 @@
           </p>
 
           <!-- Botón de descarga -->
-          <a href="assets/doc/Cv-MauricioVereau.pdf" download
+          <a [href]="cvLink" download
             class="mt-4 lg:mt-0 inline-flex items-center justify-center rounded-xl border border-gray-400 px-6 py-3 text-gray-800 dark:text-gray-200 font-semibold hover:bg-gray-100 hover:dark:bg-gray-800 transition text-center">
             <fa-icon [icon]="iconDownload" class="mr-2"></fa-icon>
             {{ experienceData.button }}
@@ -24,8 +24,6 @@
         </div>
       </div>
     </div>
-
-
 
     <h3 class="mt-20 sm:mt-16 text-xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-2xl text-center">
       <fa-icon [icon]="iconStudy"></fa-icon> {{ experienceData.educationTit }}

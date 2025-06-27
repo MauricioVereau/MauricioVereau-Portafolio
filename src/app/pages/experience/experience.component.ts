@@ -20,11 +20,17 @@ export class ExperienceComponent {
 
   iconCd = faCode;
 
+  cvLink= ''; // Enlace por defecto
+
   constructor(public translate: TranslateService) { }
 
   ngOnInit() {
     this.loadExperienceTexts();
-    this.translate.currentLang$.subscribe(() => this.loadExperienceTexts());
+    this.updateCvLink();
+    this.translate.currentLang$.subscribe(() => {
+      this.loadExperienceTexts();
+      this.updateCvLink(); // <-- ¡Agrega esto!
+    });
   }
 
   public changeLanguage(lang: string) {
@@ -40,6 +46,12 @@ export class ExperienceComponent {
 
     this.certificationsData = this.translate.getTranslation('certifications') || {};
     console.log('Datos de Certificaciones:', this.certificationsData);
+
+  }
+
+  updateCvLink() {
+    const lang = this.translate.getCurrentLang();
+    this.cvLink = lang === 'en' ? 'assets/doc/MauricioVereau-EN.pdf' : 'assets/doc/MauricioVereau-ES.pdf';
   }
 
 }

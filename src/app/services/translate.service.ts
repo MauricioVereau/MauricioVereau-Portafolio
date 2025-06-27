@@ -57,6 +57,8 @@ export class TranslateService {
    * @returns Código del idioma actual
    */
   getCurrentLang(): string {
+    console.log('Current language:', this.currentLangSubject.value);
+
     return this.currentLangSubject.value;
   }
 
@@ -75,4 +77,5 @@ export class TranslateService {
   private getSavedLang(): string | null {
     return localStorage.getItem('selectedLang');
   }
+
 }

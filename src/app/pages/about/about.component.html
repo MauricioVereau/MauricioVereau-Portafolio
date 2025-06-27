@@ -1,103 +1,35 @@
-<div class="flex justify-center items-center w-full min-h-screen bg-white dark:bg-gray-900 p-4">
-  <div
-    class="flex flex-wrap justify-center items-center gap-6 w-full max-w-7xl border border-gray-400 dark:border-gray-600 rounded-2xl bg-gray-300 dark:bg-gray-800 p-4">
+<div class="py-10 sm:py-5">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <h3 class="text-xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-2xl text-center">
+      <fa-icon [icon]="iconTech"></fa-icon> {{ aboutData.title }}
+    </h3>
 
-    <!-- Frontend -->
-    <div class="w-full max-w-sm bg-white dark:bg-gray-900 rounded-lg flex flex-col justify-center items-center p-6 text-center">
-      <i class="fas fa-laptop-code text-7xl text-gray-800 dark:text-white mb-6"></i>
-      <h3 class="text-2xl font-semibold text-gray-800 dark:text-white">Frontend</h3>
-      <div class="grid grid-cols-2 gap-4 mt-6">
-        <div class="card flex flex-col items-center p-4 bg-gray-200 dark:bg-gray-700 rounded-lg">
-          <fa-icon [icon]="iconAngular" class="text-red-600 text-4xl"></fa-icon>
-          <p class="mt-2 text-gray-800 dark:text-white">Angular</p>
-        </div>
-        <div class="card flex flex-col items-center p-4 bg-gray-200 dark:bg-gray-700 rounded-lg">
-          <fa-icon [icon]="iconHtml" class="text-orange-500 text-4xl"></fa-icon>
-          <p class="mt-2 text-gray-800 dark:text-white">HTML</p>
-        </div>
-        <div class="card flex flex-col items-center p-4 bg-gray-200 dark:bg-gray-700 rounded-lg">
-          <fa-icon [icon]="iconCss" class="text-blue-500 text-4xl"></fa-icon>
-          <p class="mt-2 text-gray-800 dark:text-white">CSS</p>
-        </div>
-        <div class="card flex flex-col items-center p-4 bg-gray-200 dark:bg-gray-700 rounded-lg">
-          <fa-icon [icon]="iconJs" class="text-yellow-400 text-4xl"></fa-icon>
-          <p class="mt-2 text-gray-800 dark:text-white">JavaScript</p>
-        </div>
-        <div class="card flex flex-col items-center p-4 bg-gray-200 dark:bg-gray-700 rounded-lg">
-          <img src="assets/img/tecnologias/typescript.webp" class="h-10 w-10" alt=".NET Logo" />
-          <p class="mt-2 text-gray-800 dark:text-white">TypeScript</p>
-        </div>
-        <div class="card flex flex-col items-center p-4 bg-gray-200 dark:bg-gray-700 rounded-lg">
-          <fa-icon [icon]="iconBootstrap" class="text-purple-600 text-4xl"></fa-icon>
-          <p class="mt-2 text-gray-800 dark:text-white">Bootstrap</p>
-        </div>
-        <div class="card flex flex-col items-center p-4 bg-gray-200 dark:bg-gray-700 rounded-lg">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg" class="h-10 w-10" alt="Tailwind CSS" />
-          <p class="mt-2 text-gray-800 dark:text-white">Tailwind CSS</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Backend -->
-    <div class="w-full max-w-sm bg-white dark:bg-gray-900 rounded-lg flex flex-col justify-center items-center p-6 text-center">
-      <i class="fas fa-database text-7xl text-gray-800 dark:text-white mb-6"></i>
-      <h3 class="text-2xl font-semibold text-gray-800 dark:text-white">Backend</h3>
-
-      <div class="grid grid-cols-2 gap-4 mt-6">
-        <div class="card flex flex-col items-center p-4 bg-gray-200 dark:bg-gray-700 rounded-lg">
-          <img src="assets/img/tecnologias/dotnet.svg" class="h-10 w-10" alt=".NET Logo" />
-          <p class="mt-2 text-gray-800 dark:text-white">.Net Framework</p>
-        </div>
-
-        <div class="card flex flex-col items-center p-4 bg-gray-200 dark:bg-gray-700 rounded-lg">
-          <img src="assets/img/tecnologias/springboot.svg" class="h-10 w-10" alt="Springboot" />
-          <p class="mt-2 text-gray-800 dark:text-white">Spring Boot</p>
-        </div>
-
-        <div class="card flex flex-col items-center p-4 bg-gray-200 dark:bg-gray-700 rounded-lg">
-          <img src="assets/img/tecnologias/mysql.svg" class="h-10 w-10" alt="MySql" />
-          <p class="mt-2 text-gray-800 dark:text-white">MySql</p>
-        </div>
-
-        <div class="card flex flex-col items-center p-4 bg-gray-200 dark:bg-gray-700 rounded-lg">
-          <fa-icon [icon]="iconDb" class="text-yellow-400 text-4xl"></fa-icon>
-          <p class="mt-2 text-gray-800 dark:text-white">Sql Server</p>
-        </div>
-        <div class="card flex flex-col items-center p-4 bg-gray-200 dark:bg-gray-700 rounded-lg">
-          <fa-icon [icon]="iconNode" class="text-green-600 text-4xl"></fa-icon>
-          <p class="mt-2 text-gray-800 dark:text-white">Node.js</p>
-        </div>
-        <div class="card flex flex-col items-center p-4 bg-gray-200 dark:bg-gray-700 rounded-lg">
-          <img src="assets/img/tecnologias/python.svg" class="h-10 w-10" alt="MySql" />
-          <p class="mt-2 text-gray-800 dark:text-white">Python</p>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- AI / Otros -->
-    <div class="w-full max-w-sm bg-white dark:bg-gray-900 rounded-lg flex flex-col justify-center items-center p-6 text-center">
-      <i class="fas fa-brain text-7xl text-gray-800 dark:text-white mb-6"></i>
-      <h3 class="text-2xl font-semibold text-gray-800 dark:text-white">AI / Otros</h3>
-      <div class="grid grid-cols-2 gap-4 mt-6">
-        <div class="card flex flex-col items-center p-4 bg-gray-200 dark:bg-gray-700 rounded-lg">
-          <img src="assets/img/tecnologias/scrum.webp" class="h-10 w-10" alt="Springboot" />
-          <p class="mt-2 text-gray-800 dark:text-white">Scrum</p>
-        </div>
-
-        <div class="card flex flex-col items-center p-4 bg-gray-200 dark:bg-gray-700 rounded-lg">
-          <img src="assets/img/tecnologias/postman.svg" class="h-10 w-10" alt="Springboot" />
-          <p class="mt-2 text-gray-800 dark:text-white">Postman</p>
-        </div>
-
-        <div class="card flex flex-col items-center p-4 bg-gray-200 dark:bg-gray-700 rounded-lg">
-          <img src="assets/img/tecnologias/openai.png" alt="ChatGPT" class="w-12 h-12 rounded-full" />
-          <p class="mt-2 text-gray-800 dark:text-white">OpenAI</p>
-        </div>
-
+    <div class="mx-auto mt-4 mb-6 relative">
+      <div class="absolute inset-0 bg-black/40 dark:bg-black/60 rounded-xl -z-10"></div>
+      <div
+        class="p-4 border border-gray-200 dark:border-gray-700 bg-white/10 dark:bg-gray-900/10 backdrop-blur-md rounded-xl shadow-xl overflow-hidden relative">
+        <app-tech-icons [categories]="techCategories"></app-tech-icons>
       </div>
     </div>
 
 
+    <h3 class="mt-10 mb-6 text-lg font-bold tracking-tight text-gray-900 dark:text-white sm:text-xl text-center">
+      <fa-icon [icon]="iconProject"></fa-icon> {{ projectsData.title }}
+    </h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <ng-container *ngFor="let project of projectsData.projects">
+        <div
+          class="border border-gray-200 dark:border-gray-700 bg-white/10 dark:bg-gray-900/10 backdrop-blur-md rounded-xl shadow-xl overflow-hidden p-6 flex flex-col items-start hover:scale-105 transition-transform duration-300">
+          <img *ngIf="project.image" [src]="project.image" [alt]="project.title"
+            class="w-full h-40 object-cover rounded mb-4">
+          <h4 class="text-base font-semibold text-gray-900 dark:text-white mb-2">{{ project.title }}</h4>
+          <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">{{ project.description }}</p>
+          <a *ngIf="project.link" [href]="project.link" target="_blank"
+            class="mt-auto inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
+            Ver proyecto
+          </a>
+        </div>
+      </ng-container>
+    </div>
   </div>
 </div>

@@ -17,6 +17,7 @@ export class NavbarComponent implements OnInit {
 
   modalAbierto = false; // Estado del modal
   modalRedesAbierto = false;
+  modalDownloadAbierto = false;
 
   texts: string[] = [];
   displayedText = "";
@@ -35,7 +36,7 @@ export class NavbarComponent implements OnInit {
   constructor(
     public translate: TranslateService,
     private stickyService: StickyService // Inyectar el servicio
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.loadTexts();
@@ -62,6 +63,13 @@ export class NavbarComponent implements OnInit {
   cerrarModalRedes() {
     this.modalRedesAbierto = false;
     document.body.classList.remove('overflow-hidden');
+  }
+
+  abrirModalDownload() {
+    this.modalDownloadAbierto = true;
+  }
+  cerrarModalDownload() {
+    this.modalDownloadAbierto = false;
   }
 
   /**
