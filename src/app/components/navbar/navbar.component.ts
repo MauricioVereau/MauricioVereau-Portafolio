@@ -1,7 +1,7 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { TranslateService } from '../../services/translate.service';
 import { StickyService } from '../../services/sticky.service';
-import { faFileDownload, faInbox, faLinkSlash } from '@fortawesome/free-solid-svg-icons';
+import { faCheckCircle, faFileDownload, faInbox, faLinkSlash } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedin, faMedapps } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
@@ -10,10 +10,12 @@ import { faLinkedin, faMedapps } from '@fortawesome/free-brands-svg-icons';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent implements OnInit {
+  @ViewChild('banner') bannerRef!: ElementRef;
 
   iconMsj = faInbox;
   iconRed = faLinkSlash;
   iconDownload = faFileDownload;
+  iconSuccess = faCheckCircle;
 
   modalAbierto = false; // Estado del modal
   modalRedesAbierto = false;
@@ -27,6 +29,9 @@ export class NavbarComponent implements OnInit {
 
   isDarkMode = false;
   isSticky: boolean = false; // Estado del menú fijo
+  isSubmitted = false;
+
+
 
   private typingSpeed = 50; // Velocidad de escritura
   private deletingSpeed = 0; // Velocidad de borrado
@@ -38,12 +43,15 @@ export class NavbarComponent implements OnInit {
     private stickyService: StickyService // Inyectar el servicio
   ) { }
 
+  currentLang = this.translate.getCurrentLang();
+
   ngOnInit() {
+  this.loadTexts();
+  this.translate.currentLang$.subscribe(lang => {
+    this.currentLang = lang;
     this.loadTexts();
-    this.translate.currentLang$.subscribe(() => {
-      this.loadTexts();
-    });
-  }
+  });
+}
 
   abrirModal() {
     this.modalAbierto = true;
@@ -148,11 +156,19 @@ export class NavbarComponent implements OnInit {
    */
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    const banner = document.getElementById('banner');
-    if (banner) {
-      const bannerBottom = banner.getBoundingClientRect().bottom;
+    if (this.bannerRef) {
+      const bannerBottom = this.bannerRef.nativeElement.getBoundingClientRect().bottom;
       this.isSticky = bannerBottom <= 0;
-      this.stickyService.setStickyState(this.isSticky); // Notificar a otros componentes
+      this.stickyService.setStickyState(this.isSticky);
     }
+  }
+
+  mostrarOverlayExito() {
+    console.log('Overlay activado');
+    this.isSubmitted = true;
+    setTimeout(() => {
+      this.isSubmitted = false;
+      this.cerrarModal();
+    }, 2000);
   }
 }

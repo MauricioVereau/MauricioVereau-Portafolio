@@ -22,6 +22,10 @@ export class TranslateService {
   loadTranslations(lang: string): void {
     this.http.get(`/assets/i18n/${lang}.json`).pipe(
       catchError(err => {
+        if (lang !== 'en') {
+          // Intenta cargar inglés si falla otro idioma
+          return this.http.get(`/assets/i18n/en.json`);
+        }
         console.error(`Error cargando traducciones para ${lang}:`, err);
         return of({}); // Evita que la app falle si el archivo no existe
       })
@@ -39,7 +43,8 @@ export class TranslateService {
    * @returns Traducción o la clave si no se encuentra.
    */
   getTranslation<T = string>(key: string): T {
-    return key.split('.').reduce((obj, part) => obj?.[part], this.translations) as T;
+    const value = key.split('.').reduce((obj, part) => obj?.[part], this.translations);
+    return (value !== undefined ? value : key) as T;
   }
 
   /**
@@ -57,7 +62,7 @@ export class TranslateService {
    * @returns Código del idioma actual
    */
   getCurrentLang(): string {
-    console.log('Current language:', this.currentLangSubject.value);
+   // console.log('Current language:', this.currentLangSubject.value);
 
     return this.currentLangSubject.value;
   }

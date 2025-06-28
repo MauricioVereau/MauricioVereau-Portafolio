@@ -1,18 +1,19 @@
 <div class="flex flex-col justify-between lg:min-h-screen">
   <!-- Contenedor principal (se adapta a móvil/desktop) -->
-  <div class="fixed top-4 right-4 z-50 flex items-center gap-2 sm:gap-3 bg-white/10 dark:bg-gray-900/10 backdrop-blur-md px-2 py-1.5 sm:px-3 sm:py-2 rounded-full shadow-lg border border-gray-200 dark:border-gray-700 text-xs sm:text-sm">
+  <div
+    class="fixed top-4 right-4 z-50 flex items-center gap-2 sm:gap-3 bg-white/10 dark:bg-gray-900/10 backdrop-blur-md px-2 py-1.5 sm:px-3 sm:py-2 rounded-full shadow-lg border border-gray-200 dark:border-gray-700 text-xs sm:text-sm">
 
     <!-- Botón EN -->
-    <button (click)="changeLanguage('en')" [class.bg-blue-600]="translate.getCurrentLang() === 'en'"
-      [class.text-white]="translate.getCurrentLang() === 'en'" class="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full font-bold transition-colors text-[0.7rem] sm:text-xs
+    <button (click)="changeLanguage('en')" [class.bg-blue-600]="currentLang === 'en'"
+      [class.text-white]="currentLang === 'en'" class="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full font-bold transition-colors text-[0.7rem] sm:text-xs
               hover:bg-blue-500
               text-black dark:text-white">
       <strong>EN</strong>
     </button>
 
     <!-- Botón ES -->
-    <button (click)="changeLanguage('es')" [class.bg-blue-600]="translate.getCurrentLang() === 'es'"
-      [class.text-white]="translate.getCurrentLang() === 'es'" class="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full font-bold transition-colors text-[0.7rem] sm:text-xs
+    <button (click)="changeLanguage('es')" [class.bg-blue-600]="currentLang === 'es'"
+      [class.text-white]="currentLang === 'es'" class="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full font-bold transition-colors text-[0.7rem] sm:text-xs
               hover:bg-blue-500
               text-black dark:text-white">
       <strong>ES</strong>
@@ -34,7 +35,9 @@
           [class.opacity-100]="!isDarkMode" [class.opacity-0]="!isDarkMode">☀️</span>
 
         <!-- Circulo deslizante -->
-        <div class="absolute w-3 h-3 sm:w-4 sm:h-4 bg-white rounded-full shadow-md transition-transform duration-300 z-10 peer-checked:translate-x-5 sm:peer-checked:translate-x-6" [class.translate-x-6]="isDarkMode"></div>
+        <div
+          class="absolute w-3 h-3 sm:w-4 sm:h-4 bg-white rounded-full shadow-md transition-transform duration-300 z-10 peer-checked:translate-x-5 sm:peer-checked:translate-x-6"
+          [class.translate-x-6]="isDarkMode"></div>
 
         <!-- Icono luna (dark mode) -->
         <span
@@ -47,7 +50,7 @@
 
 
   <!-- Banner -->
-  <div id="banner" class="relative">
+  <div id="banner" #banner class="relative">
     <img src="assets/img/portada.jpg" class="w-full h-48 lg:h-[82vh] xxl:h-[76vh] object-cover object-center"
       alt="Banner">
 
@@ -99,19 +102,35 @@
 
 
   <!-- Modal Envío Mensaje-->
-  <div *ngIf="modalAbierto"
-    class="fixed z-50 inset-0 flex items-center justify-center bg-black bg-opacity-50 transition-opacity p-4"
+  <div *ngIf="modalAbierto" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4"
     (click)="cerrarModal()" (keydown.esc)="cerrarModal()" tabindex="0">
 
     <div class="relative w-full h-full flex items-center justify-center">
-      <div class="border border-gray-200 dark:border-gray-700 bg-white/10 dark:bg-gray-900/10 backdrop-blur-md rounded-xl shadow-xl overflow-hidden flex flex-col
-      w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl
-      h-auto max-h-[90vh] sm:max-h-[95vh]
-      transform transition-all duration-300 ease-in-out">
-        <app-send-email [isDarkMode]="isDarkMode" *ngIf="modalAbierto" (cerrar)="cerrarModal()"></app-send-email>
+
+      <!-- Modal contenedor con altura limitada -->
+      <div
+        class="relative flex flex-col w-[80vw] max-w-xl h-auto min-h-[300px] max-h-[90vh] sm:max-h-[95vh] overflow-hidden border border-gray-200 dark:border-gray-700 bg-white/10 dark:bg-gray-900/10 backdrop-blur-md rounded-xl shadow-xl transition-all duration-300 ease-in-out"
+        (click)="$event.stopPropagation()">
+
+        <!-- Overlay de éxito -->
+        <div *ngIf="isSubmitted"
+          class="absolute inset-0 z-20 flex flex-col items-center justify-center w-full h-full bg-white/90 dark:bg-gray-900/90 p-6 animate-fade-in">
+          <fa-icon [icon]="iconSuccess" class="text-green-500 mb-4" size="3x"></fa-icon>
+          <p class="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2">¡Mensaje enviado!</p>
+          <p class="text-sm text-gray-700 dark:text-gray-300 mb-4 text-center">Gracias por contactarme. Te responderé pronto.</p>
+          <button (click)="cerrarModal()"
+            class="px-5 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded font-semibold transition-all">Cerrar</button>
+        </div>
+
+        <!-- Componente del formulario -->
+        <app-send-email *ngIf="!isSubmitted" [isDarkMode]="isDarkMode" (cerrar)="cerrarModal()"
+          (submitted)="mostrarOverlayExito()">
+        </app-send-email>
+
       </div>
     </div>
   </div>
+
 
   <!-- Modal Redes Sociales -->
   <div *ngIf="modalRedesAbierto"
@@ -139,9 +158,9 @@
       <div class="border border-gray-200 dark:border-gray-700 bg-white/10 dark:bg-gray-900/10 backdrop-blur-md rounded-xl shadow-xl overflow-hidden flex flex-col
       w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl
       h-auto max-h-[90vh] sm:max-h-[95vh]
-      transform transition-all duration-300 ease-in-out"
-      (click)="$event.stopPropagation()">
-      <app-download-cv *ngIf="modalDownloadAbierto" (cerrar)="cerrarModalDownload()"></app-download-cv>
+      transform transition-all duration-300 ease-in-out" (click)="$event.stopPropagation()">
+        <app-download-cv *ngIf="modalDownloadAbierto" (cerrar)="cerrarModalDownload()"></app-download-cv>
+      </div>
     </div>
   </div>
 </div>

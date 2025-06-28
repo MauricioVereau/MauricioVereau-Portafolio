@@ -18,6 +18,8 @@ declare global {
 export class SendEmailComponent implements OnInit, AfterViewInit, OnChanges {
   @Output() cerrar = new EventEmitter<void>();
   @Input() isDarkMode: boolean = false;
+  @Output() submitted = new EventEmitter<void>();
+  isSubmitted = false; // Solo para feedback del botón
 
   iconPlane = faPaperPlane;
   iconSuccess = faCheckCircle;
@@ -28,7 +30,6 @@ export class SendEmailComponent implements OnInit, AfterViewInit, OnChanges {
   turnstileWidgetId: any;
 
   isSubmitting = false;
-  isSubmitted = false;
   turnstileError = false;
 
   constructor(private fb: FormBuilder, private emailService: SendEmailService, public translate: TranslateService) { }
@@ -124,11 +125,13 @@ export class SendEmailComponent implements OnInit, AfterViewInit, OnChanges {
 
   private handleSuccess(): void {
     this.isSubmitting = false;
-    this.isSubmitted = true;
+    this.isSubmitted = true; // Feedback en el botón
 
     setTimeout(() => {
       this.resetForm();
       this.cerrar.emit();
+      this.submitted.emit(); // Notifica al padre para mostrar overlay
+      this.isSubmitted = false; // Opcional: reset feedback después
     }, 2000);
   }
 
