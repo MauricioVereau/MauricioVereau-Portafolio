@@ -1,7 +1,7 @@
 import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { TranslateService } from '../../services/translate.service';
 import { StickyService } from '../../services/sticky.service';
-import { faCheckCircle, faFileDownload, faInbox, faLinkSlash } from '@fortawesome/free-solid-svg-icons';
+import { faCheckCircle, faClose, faFileDownload, faInbox, faLinkSlash } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedin, faMedapps } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
@@ -16,6 +16,7 @@ export class NavbarComponent implements OnInit {
   iconRed = faLinkSlash;
   iconDownload = faFileDownload;
   iconSuccess = faCheckCircle;
+  iconCerrar = faClose;
 
   modalAbierto = false; // Estado del modal
   modalRedesAbierto = false;
@@ -60,6 +61,7 @@ export class NavbarComponent implements OnInit {
 
   cerrarModal() {
     this.modalAbierto = false;
+    this.isSubmitted = false;
     document.body.classList.remove('overflow-hidden');
   }
 
@@ -169,6 +171,6 @@ export class NavbarComponent implements OnInit {
     setTimeout(() => {
       this.isSubmitted = false;
       this.cerrarModal();
-    }, 2000);
+    }, 4000);
   }
 }

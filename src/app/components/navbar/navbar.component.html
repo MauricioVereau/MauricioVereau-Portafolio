@@ -101,25 +101,32 @@
   </div>
 
 
-  <!-- Modal Envío Mensaje-->
+  <!-- Modal Envío Mensaje -->
   <div *ngIf="modalAbierto" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4"
     (click)="cerrarModal()" (keydown.esc)="cerrarModal()" tabindex="0">
-
     <div class="relative w-full h-full flex items-center justify-center">
-
-      <!-- Modal contenedor con altura limitada -->
       <div
-        class="relative flex flex-col w-[80vw] max-w-xl h-auto min-h-[300px] max-h-[90vh] sm:max-h-[95vh] overflow-hidden border border-gray-200 dark:border-gray-700 bg-white/10 dark:bg-gray-900/10 backdrop-blur-md rounded-xl shadow-xl transition-all duration-300 ease-in-out"
+        class="border border-gray-200 dark:border-gray-700 bg-white/10 dark:bg-gray-900/10 backdrop-blur-md rounded-xl shadow-xl overflow-hidden flex flex-col w-[80vw] max-w-xl h-auto min-h-[300px] max-h-[90vh] sm:max-h-[95vh] transition-all duration-300 ease-in-out"
         (click)="$event.stopPropagation()">
 
         <!-- Overlay de éxito -->
         <div *ngIf="isSubmitted"
           class="absolute inset-0 z-20 flex flex-col items-center justify-center w-full h-full bg-white/90 dark:bg-gray-900/90 p-6 animate-fade-in">
+
+          <!-- Botón cerrar estilo "X" arriba a la derecha -->
+          <button (click)="cerrarModal()" class="absolute top-1 right-2 w-9 h-9 flex items-center justify-center rounded-full
+           bg-gray-200 dark:bg-gray-700
+           hover:bg-gray-400 dark:hover:bg-gray-600
+           text-black dark:text-white
+           shadow-sm hover:shadow-md
+           transition-all duration-200 ease-in-out focus:outline-none">
+            <fa-icon [icon]="iconCerrar" class="text-base"></fa-icon>
+          </button>
+
           <fa-icon [icon]="iconSuccess" class="text-green-500 mb-4" size="3x"></fa-icon>
           <p class="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2">¡Mensaje enviado!</p>
-          <p class="text-sm text-gray-700 dark:text-gray-300 mb-4 text-center">Gracias por contactarme. Te responderé pronto.</p>
-          <button (click)="cerrarModal()"
-            class="px-5 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded font-semibold transition-all">Cerrar</button>
+          <p class="text-sm text-gray-700 dark:text-gray-300 mb-4 text-center">Gracias por contactarme. Te responderé
+            pronto.</p>
         </div>
 
         <!-- Componente del formulario -->
@@ -138,12 +145,9 @@
     (click)="cerrarModalRedes()" (keydown.esc)="cerrarModalRedes()" tabindex="0">
 
     <div class="relative w-full h-full flex items-center justify-center">
-      <div class="border border-gray-200 dark:border-gray-700 bg-white/10 dark:bg-gray-900/10 backdrop-blur-md rounded-xl shadow-xl overflow-hidden flex flex-col
-      w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl
-      h-auto
-      min-h-0
-      max-h-full
-      transform transition-all duration-300 ease-in-out">
+      <div
+        class="border border-gray-200 dark:border-gray-700 bg-white/10 dark:bg-gray-900/10 backdrop-blur-md rounded-xl shadow-xl overflow-hidden flex flex-col w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl h-auto min-h-0 max-h-full transform transition-all duration-300 ease-in-out"
+        (click)="$event.stopPropagation()">
         <app-social-media *ngIf="modalRedesAbierto" (cerrar)="cerrarModalRedes()"></app-social-media>
       </div>
     </div>
@@ -155,10 +159,9 @@
     (click)="cerrarModalDownload()" (keydown.esc)="cerrarModalDownload()" tabindex="0">
 
     <div class="relative w-full h-full flex items-center justify-center">
-      <div class="border border-gray-200 dark:border-gray-700 bg-white/10 dark:bg-gray-900/10 backdrop-blur-md rounded-xl shadow-xl overflow-hidden flex flex-col
-      w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl
-      h-auto max-h-[90vh] sm:max-h-[95vh]
-      transform transition-all duration-300 ease-in-out" (click)="$event.stopPropagation()">
+      <div
+        class="border border-gray-200 dark:border-gray-700 bg-white/10 dark:bg-gray-900/10 backdrop-blur-md rounded-xl shadow-xl overflow-hidden flex flex-col w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl h-auto max-h-[90vh] sm:max-h-[95vh] transform transition-all duration-300 ease-in-out"
+        (click)="$event.stopPropagation()">
         <app-download-cv *ngIf="modalDownloadAbierto" (cerrar)="cerrarModalDownload()"></app-download-cv>
       </div>
     </div>

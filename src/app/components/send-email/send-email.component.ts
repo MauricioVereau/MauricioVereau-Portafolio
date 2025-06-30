@@ -129,9 +129,8 @@ export class SendEmailComponent implements OnInit, AfterViewInit, OnChanges {
 
     setTimeout(() => {
       this.resetForm();
-      this.cerrar.emit();
-      this.submitted.emit(); // Notifica al padre para mostrar overlay
       this.isSubmitted = false; // Opcional: reset feedback después
+      this.submitted.emit();
     }, 2000);
   }
 
