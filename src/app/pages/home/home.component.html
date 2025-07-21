@@ -27,19 +27,19 @@
     <div class="w-4 h-4 rounded-full transition-all duration-300 transform hover:scale-110 cursor-pointer" [ngClass]="{
       'bg-blue-500 shadow-lg': currentIndex === 0,
       'bg-gray-300 dark:bg-gray-700': currentIndex !== 0
-    }"></div>
+    }" (click)="goToIndex(0)"></div>
 
     <!-- Pelotita 2 -->
     <div class="w-4 h-4 rounded-full transition-all duration-300 transform hover:scale-110 cursor-pointer" [ngClass]="{
       'bg-blue-500 shadow-lg': currentIndex === 1,
       'bg-gray-300 dark:bg-gray-700': currentIndex !== 1
-    }"></div>
+    }" (click)="goToIndex(1)"></div>
 
     <!-- Pelotita 3 -->
     <div class="w-4 h-4 rounded-full transition-all duration-300 transform hover:scale-110 cursor-pointer" [ngClass]="{
       'bg-blue-500 shadow-lg': currentIndex === 2,
       'bg-gray-300 dark:bg-gray-700': currentIndex !== 2
-    }"></div>
+    }" (click)="goToIndex(2)"></div>
   </div>
 
   <!-- Contenedor de contenido -->

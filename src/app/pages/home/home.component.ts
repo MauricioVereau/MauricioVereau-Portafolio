@@ -86,8 +86,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.swipeInProgress = false;
   }
 
-
-
-
+  goToIndex(index: number): void {
+    this.currentIndex = index;
+    this.swipeDeltaX = 0; // resetear posición por si hay movimiento touch
+  }
 
 }
