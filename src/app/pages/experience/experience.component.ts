@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { faBusinessTime, faCertificate, faCode, faFileDownload, faGraduationCap, faIdCard, faIdCardAlt } from '@fortawesome/free-solid-svg-icons';
+import { faBusinessTime, faCertificate, faCode, faFileDownload, faGraduationCap, faIdCard } from '@fortawesome/free-solid-svg-icons';
 import { TranslateService } from '../../services/translate.service';
 
 @Component({
   selector: 'app-experience',
-  templateUrl: './experience.component.html',
-  styleUrl: './experience.component.css'
+  templateUrl: './experience.component.html'
 })
 export class ExperienceComponent {
 

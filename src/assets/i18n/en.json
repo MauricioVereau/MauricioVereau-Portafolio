@@ -63,6 +63,14 @@
     "viewCred": "View Certificate",
     "cert": [
       {
+        "certName": ".NET Backend: .NET Core, SQL Server y Security JWT",
+        "entity": "DevTalles",
+        "certDate": "2025-09",
+        "id": "7rlnrkz5vv",
+        "url": "https://cursos.devtalles.com/certificates/7rlnrkz5vv",
+        "view": "https://api.microlink.io/?url=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F1T0WCRRamjBJgcWSiN9Is4AyedhWupvYF%2Fview%3Fusp%3Ddrive_link&screenshot=true&embed=screenshot.url"
+      },
+      {
         "certName": "Scrum Fundamentals Certified",
         "entity": "SCRUMstudy",
         "certDate": "2021-09",
