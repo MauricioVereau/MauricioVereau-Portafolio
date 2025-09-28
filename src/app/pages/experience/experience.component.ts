@@ -19,7 +19,7 @@ export class ExperienceComponent {
 
   iconCd = faCode;
 
-  cvLink= ''; // Enlace por defecto
+  cvLink = '';
 
   constructor(public translate: TranslateService) { }
 
@@ -28,7 +28,7 @@ export class ExperienceComponent {
     this.updateCvLink();
     this.translate.currentLang$.subscribe(() => {
       this.loadExperienceTexts();
-      this.updateCvLink(); // <-- ¡Agrega esto!
+      this.updateCvLink();
     });
   }
 
