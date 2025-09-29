@@ -74,6 +74,18 @@ export class AboutComponent {
   projects = [
     {
       "id": 1,
+      "title": "Hoteles Italia",
+      "image": "https://api.microlink.io/?url=https://hoteles-italia.pages.dev/&screenshot=true&meta=false&embed=screenshot.url",
+      "technologies": [
+        "Angular 17",
+        "Tailwind",
+        "TS",
+      ],
+      "demo": "https://hoteles-italia.pages.dev/",
+      "repo": "https://github.com/MauricioVereau/hoteles-italia/"
+    },
+    {
+      "id": 2,
       "title": "Blog Coffee",
       "image": "https://api.microlink.io/?url=https://blogcafe-mauriciovereau.netlify.app/&screenshot=true&meta=false&embed=screenshot.url",
       "technologies": [
@@ -85,7 +97,7 @@ export class AboutComponent {
       "repo": ""
     },
     {
-      "id": 2,
+      "id": 3,
       "title": "Web Bussiness",
       "image": "https://api.microlink.io/?url=https://bienesraices-mauriciovereau.netlify.app/&screenshot=true&meta=false&embed=screenshot.url",
       "technologies": [
@@ -95,8 +107,8 @@ export class AboutComponent {
       ],
       "demo": "https://bienesraices-mauriciovereau.netlify.app/",
       "repo": ""
-    },{
-      "id": 3,
+    }, {
+      "id": 4,
       "title": "Angular Pipes",
       "image": "https://api.microlink.io/?url=https://mauriciovereau.github.io/PipesAngular/&screenshot=true&meta=false&embed=screenshot.url",
       "technologies": [
@@ -104,8 +116,8 @@ export class AboutComponent {
       ],
       "demo": "https://mauriciovereau.github.io/PipesAngular/",
       "repo": "https://github.com/MauricioVereau/PipesAngular"
-    },{
-      "id": 4,
+    }, {
+      "id": 5,
       "title": "Api Countries",
       "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
       "technologies": [
@@ -114,7 +126,20 @@ export class AboutComponent {
       ],
       "demo": "https://mauriciovereau.github.io/AppPaises/",
       "repo": "https://github.com/MauricioVereau/AppPaises"
+    }, {
+      "id": 6,
+      "title": "ApiEcommerce Demo",
+      "image": "https://raw.githubusercontent.com/MauricioVereau/Curso-.Net8-Docker/main/wwwroot/Img/Api-Run-Swagger.png",
+      "technologies": [
+        "Api",
+        ".Net Core 8",
+        "Docker"
+      ],
+      "demo": "",
+      "repo": "https://github.com/MauricioVereau/Curso-.Net8-Docker"
     }
+
+
   ]
 
   constructor(public translate: TranslateService) { }
