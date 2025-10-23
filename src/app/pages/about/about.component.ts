@@ -128,15 +128,26 @@ export class AboutComponent {
       "repo": "https://github.com/MauricioVereau/AppPaises"
     }, {
       "id": 6,
-      "title": "ApiEcommerce Demo",
+      "title": "ApiEcommerce",
       "image": "https://raw.githubusercontent.com/MauricioVereau/Curso-.Net8-Docker/main/wwwroot/Img/Api-Run-Swagger.png",
       "technologies": [
         "Api",
-        ".Net Core 8",
+        ".Net 8",
         "Docker"
       ],
       "demo": "",
       "repo": "https://github.com/MauricioVereau/Curso-.Net8-Docker"
+    },{
+      "id": 7,
+      "title": "Clean Architecture .Net",
+      "image": "https://miro.medium.com/1*l-X7q3mi1XhHwVOejWW65A.jpeg",
+      "technologies": [
+        "Api",
+        ".Net 8",
+        "Docker"
+      ],
+      "demo": "",
+      "repo": "https://github.com/MauricioVereau/eventos-backend-clean-architecture"
     }
 
 
