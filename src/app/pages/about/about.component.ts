@@ -86,6 +86,62 @@ export class AboutComponent {
     },
     {
       "id": 2,
+      "title": "App Countries",
+      "image": "https://api.microlink.io/?url=https://apppaisesv2.pages.dev/&screenshot=true&meta=false&embed=screenshot.url",
+      "technologies": [
+        "Angular v19",
+        "TS",
+        "DaisyUi"
+      ],
+      "demo": "https://apppaisesv2.pages.dev/",
+      "repo": "https://github.com/MauricioVereau/AppPaisesV2.git"
+    },
+    {
+      "id": 3,
+      "title": "App Gifs",
+      "image": "https://api.microlink.io/?url=https://appgifsv2.pages.dev/&screenshot=true&meta=false&embed=screenshot.url",
+      "technologies": [
+        "Angular v19",
+        "TS",
+        "DaisyUi"
+      ],
+      "demo": "https://appgifsv2.pages.dev/",
+      "repo": "https://github.com/MauricioVereau/AppPaisesV2.git"
+    },
+    {
+      "id": 4,
+      "title": "Angular Pipes",
+      "image": "https://api.microlink.io/?url=https://mauriciovereau.github.io/PipesAngular/&screenshot=true&meta=false&embed=screenshot.url",
+      "technologies": [
+        "Angular v17",
+      ],
+      "demo": "https://mauriciovereau.github.io/PipesAngular/",
+      "repo": "https://github.com/MauricioVereau/PipesAngular"
+    },
+    {
+      "id": 5,
+      "title": "ApiEcommerce",
+      "image": "https://raw.githubusercontent.com/MauricioVereau/Curso-.Net8-Docker/main/wwwroot/Img/Api-Run-Swagger.png",
+      "technologies": [
+        "Api",
+        ".Net 8",
+        "Docker"
+      ],
+      "demo": "",
+      "repo": "https://github.com/MauricioVereau/Curso-.Net8-Docker"
+    }, {
+      "id": 6,
+      "title": "Clean Architecture .Net",
+      "image": "https://miro.medium.com/1*l-X7q3mi1XhHwVOejWW65A.jpeg",
+      "technologies": [
+        "Api",
+        ".Net 8",
+        "Docker"
+      ],
+      "demo": "",
+      "repo": "https://github.com/MauricioVereau/eventos-backend-clean-architecture"
+    }, {
+      "id": 7,
       "title": "Blog Coffee",
       "image": "https://api.microlink.io/?url=https://blogcafe-mauriciovereau.netlify.app/&screenshot=true&meta=false&embed=screenshot.url",
       "technologies": [
@@ -97,7 +153,7 @@ export class AboutComponent {
       "repo": ""
     },
     {
-      "id": 3,
+      "id": 8,
       "title": "Web Bussiness",
       "image": "https://api.microlink.io/?url=https://bienesraices-mauriciovereau.netlify.app/&screenshot=true&meta=false&embed=screenshot.url",
       "technologies": [
@@ -107,50 +163,7 @@ export class AboutComponent {
       ],
       "demo": "https://bienesraices-mauriciovereau.netlify.app/",
       "repo": ""
-    }, {
-      "id": 4,
-      "title": "Angular Pipes",
-      "image": "https://api.microlink.io/?url=https://mauriciovereau.github.io/PipesAngular/&screenshot=true&meta=false&embed=screenshot.url",
-      "technologies": [
-        "Angular v17",
-      ],
-      "demo": "https://mauriciovereau.github.io/PipesAngular/",
-      "repo": "https://github.com/MauricioVereau/PipesAngular"
-    }, {
-      "id": 5,
-      "title": "Api Countries",
-      "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
-      "technologies": [
-        "Angular v17",
-        "Api"
-      ],
-      "demo": "https://mauriciovereau.github.io/AppPaises/",
-      "repo": "https://github.com/MauricioVereau/AppPaises"
-    }, {
-      "id": 6,
-      "title": "ApiEcommerce",
-      "image": "https://raw.githubusercontent.com/MauricioVereau/Curso-.Net8-Docker/main/wwwroot/Img/Api-Run-Swagger.png",
-      "technologies": [
-        "Api",
-        ".Net 8",
-        "Docker"
-      ],
-      "demo": "",
-      "repo": "https://github.com/MauricioVereau/Curso-.Net8-Docker"
-    },{
-      "id": 7,
-      "title": "Clean Architecture .Net",
-      "image": "https://miro.medium.com/1*l-X7q3mi1XhHwVOejWW65A.jpeg",
-      "technologies": [
-        "Api",
-        ".Net 8",
-        "Docker"
-      ],
-      "demo": "",
-      "repo": "https://github.com/MauricioVereau/eventos-backend-clean-architecture"
     }
-
-
   ]
 
   constructor(public translate: TranslateService) { }
