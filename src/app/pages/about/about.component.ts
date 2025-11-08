@@ -86,7 +86,7 @@ export class AboutComponent {
     },
     {
       "id": 2,
-      "title": "App Countries",
+      "title": "Application Countries",
       "image": "https://api.microlink.io/?url=https://apppaisesv2.pages.dev/&screenshot=true&meta=false&embed=screenshot.url",
       "technologies": [
         "Angular v19",
