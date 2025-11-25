@@ -81,8 +81,8 @@ export class AboutComponent {
         "Tailwind",
         "TS",
       ],
-      "demo": "https://hoteles-italia.pages.dev/",
-      "repo": "https://github.com/MauricioVereau/hoteles-italia/"
+      "demo": "https://hotelesitaliachiclayo.com",
+      "repo": ""
     },
     {
       "id": 2,
